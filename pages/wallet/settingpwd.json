@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sixpwd": "../components/sixpwd"
+  },
+  "navigationBarTitleText": "设置交易密码"
+}

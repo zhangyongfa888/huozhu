@@ -1,0 +1,27 @@
+<!--pages/cisdomshipper/wallet/withdraw.wxml-->
+<view >
+  <view style='background:#fff;height:200rpx;'>
+    <text class='title'>输入提现金额</text>
+
+    <view class='input'>
+      <text style='font-size:18px;'>￥</text>
+      <input maxlength='9' bindinput='inputMoney' type='number' value='{{input}}' placeholder='最低100元'></input>
+    </view>
+
+    <text class='balanceinfo'>当前可提现金额{{canUser}}元</text>
+
+  </view>
+
+  <view style='position:fixed;left:0;top:200rpx;background:#f5f5f5;width:100%;height:100%;'>
+    <text class='tips'>最低提现金额为100元，每周只允许提现一次，周二结算审核</text>
+    <button class='submit' bindtap='submit' disabled='{{disable}}' >确认提交</button>
+  </view>
+</view>
+
+<modal hidden="{{!showpwd}}" bindcancel='pwd_cancel' bindconfirm='pwd_confirm'>
+
+  <view style='height:130px;'>
+    <sixpwd id="sixpass" bind:passwordInput="passInput" bind:forgetPwd="forgetPwd" ></sixpwd>
+  </view>
+
+</modal>

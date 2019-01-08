@@ -1,0 +1,31 @@
+<!--pages/tools/about.wxml-->
+<view class='parent'>
+
+  <view class='banner'>
+    <image src='http://res.zhangyongfa888.site/ic_about.png' mode='aspectFit' class='logo'></image>
+    <text class='name'>货运宝司机端lite</text>
+  </view>
+
+  <view class='info'>
+    <text class='infocontent'>运货，就找货运宝!\n长途货运、市内拉货，一触即发！货运宝，连接货运物流中的车、货、人！\n同城物流，汇集全城及近郊地区的大多数货运车辆，按车型及各地不同消费水平，\n定制起底运费及里程单价。找车不花冤枉钱，送货收入有保障！\n长途货运，汇集全国货源，整合承运散户资源。\n货主与司机，透明化的信用评价体系，保障货运双方共同利益，搭建诚信、效率兼顾的线上物流平台。\n支持线上线下多种付款方式，方便用户获取收益。
+    </text>
+
+  </view>
+
+  <view class='contactus'>
+
+    <view class='line1'>
+      <text>电话:</text>
+      <text class='tel'>400-796-9898</text>
+    </view>
+    <view class='line1'>
+      <text>邮箱:</text>
+      <text class='tel'>zdhuoyunbao@163.com</text>
+    </view>
+    <view class='line1'>
+      <text>电话:</text>
+      <!-- <rich-text nodes="<a href='http://www.zdhuoyunbao.com'>http://www.zdhuoyunbao.com</a>"></rich-text> -->
+      <text class='tel'>http://www.zdhuoyunbao.com</text>
+    </view>
+  </view>
+</view>

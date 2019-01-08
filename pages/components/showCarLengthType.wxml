@@ -1,0 +1,23 @@
+<!--pages/components/showCarLengthType.wxml-->
+<view class='zhezhao'>
+</view>
+<view class='dialog' bindconfirm="chooseCarFinish">
+  <view class='dialogtitle'>选择车长</view>
+  <view class="gridview">
+
+    <view class="gridview-item" wx:for="{{carLengthList}}" wx:key="name">
+      <view class='gridview-item__txt {{item.isChecked?"checked":""}}' data-index='{{index}}' bindtap='chooseCarLength'>{{item.length}}</view>
+    </view>
+
+  </view>
+  <view class='dialogtitle'>选择车型</view>
+  <view class="gridview">
+
+    <view class="gridview-item" wx:for="{{carTypeList}}" wx:key="name">
+      <view class='gridview-item__txt {{item.isChecked?"checked":""}}' data-index='{{index}}' bindtap='chooseCarName'>{{item.carTypeName}}</view>
+    </view>
+
+  </view>
+  <view class='confirm' bindtap="chooseCarFinish">确定</view>
+
+</view>

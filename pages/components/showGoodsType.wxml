@@ -1,0 +1,24 @@
+<!--pages/components/showCarType.wxml-->
+<!-- 弹出货物类型 -->
+<view class='zhezhao'>
+</view>
+<view class='dialog'>
+  <view class='dialogtitle'>选择大类</view>
+  <view class="gridview">
+    <view class="gridview-item" wx:for="{{list}}" wx:key="name">
+      <view class='gridview-item__txt {{item.isChecked?"checked":""}}' bindtap='onItemCheck' data-parentindex='{{index}}' data-pid='{{item.id}}'>{{item.cargo_type}}</view>
+    </view>
+
+  </view>
+  <view class='dialogtitle'>选择小类</view>
+
+  <view class="gridview">
+
+    <view class="gridview-item" wx:for="{{children}}" wx:key="name">
+      <view class='gridview-item__txt {{item.isChecked?"checked":""}}' bindtap='onChildItemCheck' data-childindex='{{index}}' data-cid='{{item.id}}'>{{item.cargo_type}}</view>
+    </view>
+
+  </view>
+
+  <view class='confirm' bindtap="onFinishClick">确定</view>
+</view>

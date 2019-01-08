@@ -1,0 +1,12 @@
+<!--pages/cisdomshipper/order/extras.wxml-->
+<view>
+
+  <checkbox-group style='margin-top:20px;' bindchange="checkboxChange">
+    <label class="checkbox" wx:for="{{items}}">
+
+      <checkbox value="{{item.Did}}" checked="{{item.checked}}" />{{item.name}}
+    </label>
+  </checkbox-group>
+
+  <view class='confirm' bindtap='onClickConfirm'>确定</view>
+</view>

@@ -1,0 +1,55 @@
+/* pages/login/login.wxss */
+/* pages/cisdomshipper/login/login.wxss */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.hor {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.input {
+  flex-grow: 1;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.getcode {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  color: #00a029;
+  font-size: 14px;
+}
+
+.getcode:active {
+  color: #d9d9d9;
+}
+
+.loginhuozhu {
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  height: 40px;
+  background: #ec6700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginhuozhu:active {
+
+  color: #d9d9d9;
+
+}

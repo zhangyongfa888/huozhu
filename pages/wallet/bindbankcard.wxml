@@ -1,0 +1,26 @@
+<!--pages/cisdomshipper/wallet/bindbankcard.wxml-->
+<view class='line'>
+  <text class='title'>银行名称:</text>
+
+  <text bindtap='chooseBankName' class='placeholder'>{{choosed}}</text>
+  <image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_arrow.png' mode='aspectFit' class='more'></image>
+</view>
+<view class='line'>
+  <text class='title'>账户名:</text>
+  <input placeholder-class='placeholder' bindinput='inputName' class='input' placeholder='请填写本人真实姓名'></input>
+</view>
+<view class='line'>
+  <text class='title'>银行卡号:</text>
+  <input placeholder-class='placeholder'  type='number' bindinput='inputCardNum' placeholder='请填写银行卡号'></input>
+</view>
+<button style='margin-top: 10px; width:200rpx; background: #e26000;  color: white;  font-size: 16px;  margin-bottom: 10px;' bindtap='submit' >提交</button>
+
+<text style='font-size:12px;color:#999;margin-left:20px;'>温馨提示：银行卡信息一般不可更改，如需更改请联系客服。</text>
+
+<view class='zhezhao' hidden='{{!showChoose}}'></view>
+<scroll-view scroll-y='true' class='top' hidden='{{!showChoose}}'>
+  <view wx:for='{{chooseData}}' wx:key='index'>
+    <view class='line_choose' bindtap='onChoosedItem' data-name='{{item}}'> {{item}}</view>
+  </view>
+
+</scroll-view>

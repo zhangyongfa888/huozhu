@@ -1,0 +1,37 @@
+<!--pages/components/payMethod.wxml-->
+<view class='parent' bindtap='cancelpay'>
+</view>
+
+<view class='method'>
+
+  <view class='money'>￥{{payMoney}}</view>
+
+  <view class='choose'>选择支付方式</view>
+
+  <view class='line' bindtap='chooseBl'>
+    <image class='img' src='http://res.zhangyongfa888.site/ic_cash_payment.png' mode='aspectFit'></image>
+    <view class='line-center'>
+      <text class='title'>余额支付</text>
+      <text class='banlance'>可用余额￥{{money}}</text>
+    </view>
+    <text class='recharge' hidden='{{money!=0}}' catchtap='recharge'>充值</text>
+    <image class='chooseImg' src='{{checkedBalance?"http://res.zhangyongfa888.site/ic_rb_true.png":"http://res.zhangyongfa888.site/ic_rb_false.png"}}' mode='aspectFit'></image>
+  </view>
+  <view class='line' bindtap='chooseWx'>
+    <image class='img' src='http://res.zhangyongfa888.site/ic_wechat_payment.png' mode='aspectFit'></image>
+    <view class='line-center'>
+      <text class='title'>微信支付</text>
+    </view>
+    <image class='chooseImg' src='{{checkedWexin?"http://res.zhangyongfa888.site/ic_rb_true.png":"http://res.zhangyongfa888.site/ic_rb_false.png"}}' mode='aspectFit'></image>
+
+  </view>
+
+  <button class='submit' bindtap='submit'>支付</button>
+</view>
+
+<modal hidden="{{!showSixPwd}}" confirmColor='#ec6700' bindcancel='pwd_cancel' bindconfirm='pwd_confirm'>
+  <view style='height:130px;'>
+    <sixpwd id="sixpass" bind:passwordInput="passInput" bind:forgetPwd="forgetPwd"></sixpwd>
+  </view>
+
+</modal>

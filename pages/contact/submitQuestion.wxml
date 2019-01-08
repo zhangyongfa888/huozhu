@@ -1,0 +1,18 @@
+<!--pages/tools/submitQuestion.wxml-->
+<view class='type'>
+  <view bindtap='checked' data-index='0' class='type1 {{checked==0?"checked":""}}'>基础问题</view>
+  <view bindtap='checked' data-index='1' class='type1 {{checked==1?"checked":""}}'>订单问题</view>
+  <view bindtap='checked' data-index='2' class='type1 {{checked==2?"checked":""}}'>支付问题</view>
+
+</view>
+
+
+<view class='content'>
+
+  <textarea class='content-textarea' placeholder='请留下您宝贵的意见，我们将努力改进' bindinput='input'>
+
+  </textarea>
+
+</view>
+
+<button bindtap='submit' class='submit'>提交</button>

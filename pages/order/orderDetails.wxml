@@ -1,0 +1,94 @@
+<!--pages/cisdomshipper/order/orderDetails.wxml-->
+
+
+<map id="map" hidden='{{showPay||showPayMethod||showpwd}}' scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location='true' style="width: 100%; height: {{height}}px;">
+
+  <cover-view class='driver' hidden='{{orderInfo.status==1}}'>
+    <cover-image src='{{orderInfo.pic}}' class='driverpic'></cover-image>
+    <cover-view class='driverinfo'>
+      <cover-view class='drivername'>{{orderInfo.driverName}}</cover-view>
+      <cover-view class='plateNumber'>{{orderInfo.plateNumber}}</cover-view>
+      <cover-view class='driverCarName'>{{orderInfo.driverCarName}}</cover-view>
+    </cover-view>
+    <cover-image class='drivercall' bindtap='call' src='http://app.zdhuoyunbao.com/public/smallob/image/ic_link_mobile.png'></cover-image>
+  </cover-view>
+  <cover-view class='distance' hidden='{{!(orderInfo.status==2||orderInfo.status==8||orderInfo.status==12)}}'>司机距离发货地{{distance}}</cover-view>
+
+  <cover-view class='addtip' hidden='{{!addtip}}' bindtap='addtip'>
+    <cover-image src='http://app.zdhuoyunbao.com/public/smallob/image/pic_tip_bg.png' />
+  </cover-view>
+
+  <cover-view class='addtip' hidden='{{orderInfo.status!=3}}' bindtap='ReceiveGoods'>
+    <cover-image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_confirm_receive.png' />
+  </cover-view>
+
+  <cover-view class='parent'>
+
+    <cover-view style='display: flex;  flex-direction: row;'>
+      <cover-view class='price' style=' flex-grow: 1;'>{{price==0.00?"电询":"￥"+price}}</cover-view>
+      <cover-view bindtap='orderDetailsNoMap' class='detail'>订单明细</cover-view>
+    </cover-view>
+    <cover-view class='pay' bindtap='pay' hidden='{{orderInfo.category==1}}'> {{price==0.00?"支付费用":"再次支付费用"}} </cover-view>
+
+  </cover-view>
+
+
+
+</map>
+
+
+<modal hidden="{{!showPay}}" confirmColor='#ec6700' title='{{isAddTip?"小":"运"}}费金额' confirm-text="支付" cancel-text="取消" bindcancel="pay_cancel" bindconfirm="pay_confirm" no-cancel="{{nocancel}}">
+  <input bindinput='pay_input' type='number' value='{{payMoney==0?"":payMoney}}' placeholder='请输入{{isAddTip?"小":"运"}}费金额'></input>
+</modal>
+
+<view hidden='{{!showPayMethod}}' style='position:fixed;left:0;top:0;'>
+  <view class='zhezhao' bindtap='hidePayMethod'>
+  </view>
+
+  <view class='payMethod'>
+
+    <text class='payMoney'>￥{{payMoney}}</text>
+
+    <text class='payType'>选择支付方式</text>
+
+    <view class=' item'>
+      <image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_cash_payment.png' class='icon'></image>
+
+      <view class='payBalanceLeft'>
+        <text class='payBalanceLine1'>余额支付</text>
+        <text class='payBalanceLine2'>可用余额 {{balance}}</text>
+      </view>
+
+      <view class='recharge' bindtap='recharge' wx:if="{{balance==0}}">
+        <text>立即充值</text>
+      </view>
+      <view class='paychooseWx' wx:else>
+        <radio bindtap='onCheckdBalance' disabled='{{payMoney>balance}}' checked='{{payMoney>balance?false:balanceChecked}}' color='#ec6700'></radio>
+      </view>
+
+    </view>
+
+    <view class=' item'>
+      <image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_wechat_payment.png' class='icon'></image>
+
+      <text class='payWx'>微信支付</text>
+      <radio class='paychooseWx' bindtap='onCheckdWx' checked='{{wxChecked}}' color='#ec6700'></radio>
+    </view>
+    <!-- <view class=' item'>
+      <image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_calendar.png' class='icon'></image>
+
+      <text class='payWx'>支付宝支付</text>
+      <radio class='paychooseWx'></radio>
+    </view> -->
+    <text class='gopay' bindtap='goPay'>去支付</text>
+  </view>
+
+</view>
+
+<modal hidden="{{!showpwd}}" confirmColor='#ec6700' bindcancel='pwd_cancel' bindconfirm='pwd_confirm'>
+
+  <view style='height:130px;'>
+    <sixpwd id="sixpass" bind:passwordInput="passInput" bind:forgetPwd="forgetPwd"></sixpwd>
+  </view>
+
+</modal>

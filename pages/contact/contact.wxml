@@ -1,0 +1,45 @@
+<!--pages/tools/contact.wxml-->
+
+<view class='parent'>
+  <view class='bannerparent'>
+
+    <view wx:for='{{banner}}' wx:key='index'>
+      <view class='item {{checked==index?"checked":""}}' bindtap='onItemChecked' data-index='{{index}}'>
+        <image class='item-img' src='{{item.pic}}' mode='aspectFit'></image>
+        <text class='item-txt'>{{item.txt}}</text>
+      </view>
+    </view>
+
+
+  </view>
+
+  <swiper class='swiper' current='{{checked}}' style='height:{{height-120}}px' bindchange='onItemSelected'>
+    <view wx:for='{{banner}}' wx:key='index'>
+      <swiper-item class='swiper-item'>
+
+        <view wx:for='{{index==0?data_1:index==1?data_2:index==2?data_3:""}}' wx:key='data1'>
+          <view class='line' bindtap='toDetails' data-qid='{{item.Qid}}'>{{item.title}}</view>
+        </view>
+
+
+
+      </swiper-item>
+
+    </view>
+
+  </swiper>
+
+
+  <view class='bottom'>
+
+    <view class='bottom-line bottom-border' bindtap='submitQuestion'>
+      <image src='http://res.zhangyongfa888.site/icon_ques_feed_back.png' mode='aspectFit' class='bottom-img'> </image>
+      <text>问题反馈</text>
+    </view>
+    <view class='bottom-line' bindtap='call'>
+      <image src='http://res.zhangyongfa888.site/icon_contact_center.png' mode='aspectFit' class='bottom-img'> </image>
+      <text>联系客服</text>
+    </view>
+  </view>
+
+</view>

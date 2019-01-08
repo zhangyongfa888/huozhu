@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sixpwd": "../components/sixpwd"
+  },
+  "navigationBarTitleText": "充值"
+}

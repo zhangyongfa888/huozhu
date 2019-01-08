@@ -1,0 +1,15 @@
+<!--pages/cisdomshipper/wallet/bankinfo.wxml-->
+<view class='line'>
+  <text class='title'>银行名称:</text>
+  <text class='placeholder'>{{bankName}}</text>
+</view>
+<view class='line'>
+  <text class='title'>账户名:</text>
+  <text class='placeholder'>{{account}}</text>
+</view>
+<view class='line'>
+  <text class='title'>银行卡号:</text>
+  <text class='placeholder'>{{cardNum}}</text>
+</view>
+
+<text style='font-size:12px;color:#999;margin-left:20px;'>温馨提示：银行卡信息一般不可更改，如需更改请联系客服。</text>

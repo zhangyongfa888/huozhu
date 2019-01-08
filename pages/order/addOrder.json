@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "payMethod": "../components/payMethod"
+  },
+  "navigationBarTitleText": "填写信息"
+}

@@ -1,0 +1,66 @@
+/* pages/tools/setting.wxss */
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  z-index: 0;
+}
+
+.parent {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.line1 {
+  background: #fff;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #d9d9d9;
+}
+.line1:active{
+    background: #f9f9f9;
+}
+
+.title {
+  margin-left: 10px;
+  font-size: 17px;
+  flex-grow: 1;
+}
+
+.divider {
+  border-bottom: 20rpx solid #f5f5f5;
+}
+
+.arrow {
+  margin-right: 10px;
+  width: 13px;
+  height: 13px;
+}
+
+.exit {
+  flex-grow: 1;
+  background: #f5f5f5;
+  width: 100%;
+}
+
+.exittxt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  height: 100rpx;
+  color: #e62;
+  font-size: 16px;
+}
+.exittxt:active{
+  background: #f9f9f9;
+}

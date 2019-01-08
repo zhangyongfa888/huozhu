@@ -1,0 +1,32 @@
+<!--pages/tools/setting.wxml-->
+<!-- <view class='bg'></view> -->
+<view class='parent' style='height:{{height}}px'>
+
+  <!-- <view class='line1 divider'>
+    <text class='title'>接单状态</text>
+    <switch checked='{{status}}' bindchange='status'></switch>
+  </view> -->
+  <view class='line1 divider' bindtap='onItemClick' data-to='../wallet/settingpwd'>
+    <text class='title'>{{userinfo.is_password==1?"重置交易密码":"设置交易密码"}}</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' class='arrow' mode='aspectFit'></image>
+  </view>
+  <view class='line1' bindtap='onItemClick' data-to='rule'>
+    <text class='title'>用户守则</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' class='arrow' mode='aspectFit'></image>
+  </view>
+  <view class='line1 divider' bindtap='onItemClick' data-to='standar'>
+    <text class='title'>收费标准</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' class='arrow' mode='aspectFit'></image>
+  </view>
+  <view class='line1' bindtap='onItemClick' data-to='about'>
+    <text class='title'>关于货运宝</text>
+
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' class='arrow' mode='aspectFit'></image>
+  </view>
+
+  <view class='exit'>
+
+  </view>
+  <text class='exittxt'>退出登录</text>
+
+</view>

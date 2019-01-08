@@ -1,0 +1,179 @@
+/* pages/cisdomshipper/order/orderDetailsNoMap.wxss */
+
+.hor {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.driverPhone {
+  margin-left: 10rpx;
+  font-size: 16px;
+  color: #666;
+  line-height: 100rpx;
+}
+
+.driverPic {
+  margin-left: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.line1 {
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.line0 {
+  border-bottom: 10px solid #f5f5f5;
+  background: white;
+  margin-top: 1px;
+}
+
+.line2 {
+  border-bottom: 10px solid #f5f5f5;
+  background: white;
+  margin-top: 1px;
+}
+
+.line3 {
+  border-bottom: 10px solid #f5f5f5;
+  background: white;
+}
+
+.line4 {
+  background: white;
+}
+
+.line5 {
+  text-align: center;
+  border-top: 10px solid #f5f5f5;
+  border-bottom: 10px solid #f5f5f5;
+}
+
+.sendTime {
+  padding: 15rpx 15rpx;
+  flex-grow: 1;
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.orderCode {
+  padding: 15rpx 15rpx;
+  font: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.address {
+  padding-top: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #444;
+}
+
+.orderAddress {
+  padding-bottom: 5px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #999;
+}
+
+.title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #444;
+}
+
+.detail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  font-size: 15px;
+  color: #999;
+  text-align: center;
+}
+
+.divider {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.hor:active {
+  background: #f5f5f5;
+}
+
+.center {
+  justify-content: center;
+}
+
+.status {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  height: 30px;
+}
+
+.tips {
+  margin-left: 10px;
+  color: #566;
+  font-size: 14px;
+  width: 500rpx;
+}
+
+.price {
+  margin-top: 5px;
+  color: #ec6700;
+  margin-right: 10px;
+  font-size: 15px;
+  text-align: center;
+  height: 30px;
+}
+
+.pricedetails {
+  text-underline-position: under;
+  text-decoration: underline;
+  color: #666;
+  font-size: 15px;
+  margin-right: 10px;
+  height: 30px;
+}
+
+.receiveGoods {
+  padding: 10px;
+  background: #ec6700;
+  border-radius: 10rpx;
+  border: 1px solid #ec6700;
+  font-size: 16px;
+  color: #fff;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+}
+
+.modal {
+
+  top: 200rpx;
+  position: fixed;
+  align-content: center;
+  text-align: center;
+  background: #fff;
+  z-index: 2;
+}

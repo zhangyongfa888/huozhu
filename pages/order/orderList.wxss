@@ -1,0 +1,136 @@
+/* pages/cisdomshipper/order/orderList.wxss */
+
+.top {
+  display: flex;
+  flex-direction: row;
+  z-index: 10;
+  position: fixed;
+  background: #fff;
+  width: 100%;
+}
+
+.item {
+  background: white;
+  margin: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px #dcdcdc;
+}
+
+.item:active {
+  background: #d9d9d9;
+}
+
+.titlebar {
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  color: #666;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+}
+
+.titlebarchoosed {
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  text-underline-position: under;
+  text-decoration: underline;
+  color: #ec6700;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+}
+
+.hor {
+  /* background: #eee; */
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: center;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.weight {
+  flex-grow: 1;
+}
+
+.text {
+  font-size: 14px;
+  color: #666;
+}
+
+.ordercode {
+  margin-top: 6px;
+  color: #666;
+  font-size: 14px;
+}
+
+.status {
+  background: #ec6700;
+  border-radius: 2px;
+  color: #fff;
+  padding: 3px 6px 3px 6px;
+  vertical-align: text-top;
+}
+
+.cartype {
+  background: #666;
+  border-radius: 2px;
+  color: #fff;
+  margin-top: 6px;
+  padding: 3px 6px 3px 6px;
+}
+
+.city {
+  color: #333;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 30px;
+}
+
+.money {
+  font-size: 16px;
+  color: #ec6700;
+}
+
+.left {
+  margin-left: 7.5px;
+}
+
+.dot {
+  border-radius: 2px;
+  width: 4px;
+  height: 4px;
+}
+
+.empty {
+  margin-top: 20px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .start {
+  width: 5px;
+  background: #0f0;
+}
+
+.end {
+  width: 5px;
+  background: #f0f;
+}
+
+.line {
+  background: #666;
+  width: 2px;
+  height: 20px;
+} */

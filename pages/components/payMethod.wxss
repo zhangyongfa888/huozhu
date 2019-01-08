@@ -1,0 +1,97 @@
+/* pages/components/payMethod.wxss */
+
+.parent {
+  background: #000;
+  z-index: 99;
+  opacity: 0.7;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.method {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  height: auto;
+  background: white;
+  width: 750rpx;
+  padding: 20rpx;
+  display: flex;box-sizing: border-box;
+  flex-direction: column;
+}
+
+.money {
+  margin: 30rpx;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.choose {
+  align-self: flex-start;
+  margin-left: 20rpx;
+  margin-bottom: 10rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.line {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.title {
+  align-items: center;
+}
+
+.recharge {
+  margin-right: 10rpx;
+  height: 40rpx;
+  color: white;
+  background: #e67300;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+  font-size: 28rpx;
+}
+
+.banlance {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.line-center {
+  margin-bottom: 10rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+  align-self: flex-start;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.img {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.chooseImg {
+  margin-right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.submit {
+  margin: 25rpx;
+  color: white;
+  background-color: #e67300;
+}
+.pwd{
+  
+}

@@ -1,0 +1,90 @@
+/* pages/component/evaluate.wxss */
+
+image {
+  height: 60rpx;
+  width: 60rpx;
+  display: inline-block;
+}
+
+.grade {
+  margin-top: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  top: 0px;
+}
+
+.parent {
+  width: 700rpx;
+  position: fixed;
+  left: 25rpx;
+  top: 200rpx;
+  z-index: 2;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.gridview {
+  margin: 20rpx;
+}
+
+.gridview-item {
+  width: 207rpx;
+  margin: 10rpx 5rpx 10rpx 5rpx;
+  padding: 5rpx 0 5rpx 0;
+  position: relative;
+  float: left;
+  border: 1rpx solid #e26000;
+  border-radius: 55rpx;
+  font-size: 14px;
+  text-align: center;
+  color: #e26000;
+  background: white;
+}
+
+/* .gridview-item:active {
+  background-color: #ececec;
+} */
+
+.checked {
+  background: #e26000;
+  color: #fff;
+}
+
+.unchecked {
+  color: #e26000;
+  background: white;
+}
+
+.textContent {
+  width: 670rpx;
+  margin: 10rpx;
+  font-size: 16px;
+  border: 1rpx solid #dcdcdc;
+  border-radius: 1rpx;
+  padding: 5rpx;
+  height: 200rpx;
+}
+
+.button {
+  margin-top: 10px;
+  background: #e26000;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+}

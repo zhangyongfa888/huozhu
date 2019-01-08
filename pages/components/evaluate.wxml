@@ -1,0 +1,49 @@
+<!--pages/test/test.wxml-->
+
+<!-- <view wx:if='{{showGrade}}'>
+
+  <view class='grade'>
+    <block wx:for="{{one_1}}">
+      <image class='image' src='{{unCheckedSrc}}'></image>
+    </block>
+    <block wx:for="{{two_1}}">
+      <image class='image' src='{{CheckedSrc}}'></image>
+    </block>
+  </view>
+</view> -->
+
+
+
+<!-- <view wx:else> -->
+<view class='container' hidden='{{viewhidden}}'>
+
+<view class='bg' bindtap='cancel'>
+</view>
+<view class='parent'>
+
+  <view class='grade'>
+    <block wx:for="{{one_2}}" wx:key="index">
+      <image class='image' catchtap='in_xin' id='{{index+1}}' data-in='use_sc2' src='{{unCheckedSrc}}'></image>
+    </block>
+    <block wx:for="{{two_2}}" wx:key="index">
+      <image class='image' catchtap='in_xin' id='{{index+1}}' data-in='use_sc' src='{{CheckedSrc}}'></image>
+    </block>
+  </view>
+
+  <view class='gridview'>
+    <view wx:for='{{dataList}}' wx:key="index">
+      <view bindtap='choose' data-index='{{index}}' class='{{item.checked?"gridview-item checked":"gridview-item"}}'>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <textarea class='textContent' bindinput='content' placeholder='请填写其他意见和建议'></textarea>
+  <button class='button' bindtap='submit'>提交评价</button>
+
+</view>
+</view>
+
+
+<!-- </view> -->
+
+<!-- <view style='margin-top:60px;'>二:显示用户选择的评分</view> -->

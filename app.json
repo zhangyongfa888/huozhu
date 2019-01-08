@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/main/index",
+    "pages/route/routeList",
+    "pages/order/addOrder",
+    "pages/order/extras",
+    "pages/login/login",
+    "pages/login/agreement",
+    "pages/login/authinfo",
+    "pages/order/orderDetails",
+    "pages/order/orderDetailsNoMap",
+    "pages/order/orderList",
+    "pages/wallet/wallet",
+    "pages/wallet/recharge",
+    "pages/wallet/bankinfo",
+    "pages/wallet/cardinfo",
+    "pages/wallet/withdraw",
+    "pages/wallet/tradedetails",
+    "pages/wallet/settingpwd",
+    "pages/wallet/bindbankcard",
+    "pages/userinfo/userinfo",
+    "pages/contact/contact",
+    "pages/contact/checkQuestions",
+    "pages/contact/submitQuestion",
+    "pages/setting/setting",
+    "pages/setting/about",
+    "pages/setting/standar",
+    "pages/message/message",
+    "pages/setting/rule"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ec6700",
+    "navigationBarTitleText": "货运宝",
+    "navigationBarTextStyle": "ffffff"
+  }
+}

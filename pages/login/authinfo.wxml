@@ -1,0 +1,2 @@
+<!--pages/login/authinfo.wxml-->
+<auth bind:bindgetuserinfo='bindgetuserinfo'></auth>

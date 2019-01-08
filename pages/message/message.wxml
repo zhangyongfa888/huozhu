@@ -1,0 +1,21 @@
+<!--pages/tools/message.wxml-->
+<view class='parent'>
+  <view wx:if='{{list.length==0}}'>
+    <text class='nodata'>暂无数据</text>
+  </view>
+
+
+  <view wx:for='{{list}}' wx:key='idnex'>
+    <view class='item'>
+      <view class='line1'>
+        <text class='title'>{{item.title}}</text>
+        <text class='time'>{{item.create_time}}</text>
+      </view>
+      <view class='line2'>
+        <text class='content'>{{item.content}}</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>

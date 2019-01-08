@@ -1,0 +1,107 @@
+<!--pages/cisdomshipper/order/orderDetailsNoMap.wxml-->
+<view style='background:#f5f5f5;padding:3%;height:{{height*0.97}}px'>
+
+
+
+  <view class='line0 hor' hidden='{{orderDetail.status==1}}'>
+
+    <image class='driverPic' src='{{orderDetail.pic}}'></image>
+    <text class='driverPhone'>{{orderDetail.driverMobile}}</text>
+  </view>
+
+
+  <view class='line1 hor'>
+
+    <text class='sendTime'>{{orderDetail.sendTime}}</text>
+
+    <text class='orderCode'>#{{orderDetail.orderCode}}</text>
+  </view>
+
+  <view class='line2'>
+
+    <!-- <view wx:for="{{orderDetail.route}}">
+
+      <view class='hor'>
+
+        <view class='vertical' style='padding-left:10px;'>
+          <image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_dotted_line.png' mode='bottom' style='width:10px;height:{{index==0?"0":"30"}}px;{{index==0?"margin-top:20px":""}}'></image>
+          <image src='{{index==0?"http://app.zdhuoyunbao.com/public/smallob/image/ic_main_start_address.png":"http://app.zdhuoyunbao.com/public/smallob/image/ic_main_end_address.png"}}' style='width:10px;height:10px;justify-content: center;' mode='aspectFit'></image>
+          <image src='http://app.zdhuoyunbao.com/public/smallob/image/ic_dotted_line.png' mode='bottom' style='width:10px;height:{{index==orderDetail.route.length-1?"0":"50"}}px;{{index==orderDetail.route.length-1?"margin-bottom:20px":""}}'></image>
+        </view>
+        <view class='vertical'>
+          <text class='address' data-route='{{item}}' bindtap='openAddress'>{{item.address}}</text>
+          <text class='orderAddress' bindtap='call' data-phone='{{item.mobile}}'>{{item.orderAddress}} \n{{item.name}} {{item.mobile}}</text>
+
+        </view>
+      </view>
+
+    </view> -->
+
+    <path  path='{{orderDetail.route}}'></path>
+  </view>
+
+  <view class='line3'>
+
+    <view class='hor divider'>
+      <text class='title'>订单车型</text>
+      <text class='detail'>{{orderDetail.car_type}} {{orderDetail.busSize}}</text>
+
+    </view>
+
+    <view class='hor divider' hidden='{{orderDetail.category==1}}'>
+
+      <text class='title'>货物类型</text>
+      <text class='detail'>{{orderDetail.cargoCategory}}({{orderDetail.cargoType}}) </text>
+
+    </view>
+    <view hidden='{{orderDetail.category==1}}' class='hor divider'>
+
+      <text class='title'>货物重量/体积</text>
+      <text class='detail'>{{orderDetail.cargoWeight}}</text>
+
+    </view>
+    <view class='hor divider'>
+
+      <text class='title'>联系人</text>
+      <text class='detail'>{{orderDetail.contactser}} {{orderDetail.conMobile}}</text>
+
+    </view>
+    <view class='hor divider'>
+
+      <text class='title'>订单备注</text>
+      <text class='detail'>{{orderDetail.remark}}</text>
+
+    </view>
+  </view>
+
+  <view class='line4'>
+
+    <view class='hor'>
+      <view class='vertical center' style='flex-grow: 1;'>
+        <view class='status'>{{payStatus}}</view>
+        <text class='tips' hidden='{{orderDetail.status!=11}}'>司机尚未确认收款,订单未完成,如有问题请联系司机或客服!</text>
+      </view>
+
+      <view class='vertical center'>
+        <view class='price'>{{price}}</view>
+        <view class='pricedetails' hidden='{{!pricedetails}}'>运费详情</view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <view class='line5' hidden='{{orderDetail.status!=3}}'>
+    <view class='receiveGoods' bindtap='ReceiveGoods'>
+      <text>确认收货</text>
+    </view>
+  </view>
+
+  <view class='line5' hidden='{{!(orderDetail.status==4||orderDetail.status==5)}}'>
+    <view class='receiveGoods' bindtap='evaluate'>
+      <text>评价</text>
+    </view>
+  </view>
+</view>
+<evaluate viewhidden='{{!isShowEavluate}}' unCheckedSrc='{{unCheckedSrc}}' CheckedSrc='{{CheckedSrc}}' showGrade="false" bind:submit='submit' dataList='{{evaluateData}}'>
+</evaluate>

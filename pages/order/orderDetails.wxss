@@ -1,0 +1,244 @@
+/* pages/cisdomshipper/order/orderDetails.wxss */
+
+.map {
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}
+
+.driver {
+  height: 150rpx;
+  background: #fff;
+  width: 730rpx;
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  left: 0;
+  top: 10rpx;
+}
+
+.driverpic {
+  margin: auto;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.driverinfo {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-left: 10rpx;
+  width: 500rpx;
+}
+
+.drivername {
+  color: #333;
+  font-size: 16px;
+}
+
+.plateNumber {
+  color: #333;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  font-size: 14px;
+}
+
+.driverCarName {
+  color: #666;
+  font-size: 14px;
+}
+
+.drivercall {
+  margin: auto;
+  width: 60rpx;
+  height: 60rpx;
+}
+.distance{
+  border-radius: 5rpx;
+  border: 1rpx solid #ec6700;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  background: #ef6700;
+  right: 20rpx;
+  position: fixed;
+  top: 170rpx;
+}
+.addtip {
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  bottom: 200rpx;
+  left: 325rpx;
+}
+
+.parent {
+  margin: 10rpx;
+  background: #fff;
+  position: fixed;
+  width: 730rpx;
+  bottom: 20rpx;
+  align-items: center;
+}
+
+.price {
+  margin: 10px 5px;
+  font-size: 16px;
+  color: #ec6700;
+  padding: 10rpx 10rpx;
+  text-align: center;
+}
+
+.detail {
+  margin: 10px;
+  background: #eee;
+  color: #ec6700;
+  position: fixed;
+  right: 15rpx;
+  font-size: 12px;
+  padding: 10rpx 15rpx 10rpx 15rpx;
+  border-radius: 2px;
+}
+
+.pay {
+  font-size: 16px;
+  padding: 20rpx 20rpx;
+  text-align: center;
+  color: #fff;
+  background: #ec6700;
+}
+
+.pay:active {
+  color: #eee;
+  background: #ef6700;
+}
+
+.visable {
+}
+
+.gone {
+  display: none;
+}
+
+/* 以下用于支付方式弹窗*/
+
+.zhezhao {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+
+.payMethod {
+  font-size: 16px;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payMoney {
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.payType {
+  margin-left: 10px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.item {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+
+.payBalanceLeft {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center; /*垂直 */
+}
+
+.payBalanceLine1 {
+  font-size: 14px;
+  color: #000;
+}
+
+.payBalanceLine2 {
+  font-size: 12px;
+  color: #666;
+}
+
+.payWx {
+  font-size: 14px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center; /*垂直 */
+}
+
+.paychooseWx {
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.recharge {
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  background: #ec6700;
+  color: #fff;
+  width: auto;
+  margin-right: 5%;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+}
+
+.gopay {
+  border: 2px solid;
+  border-radius: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
+  justify-content: center;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  width: 90%;
+  color: #fff;
+  background: #ec6700;
+  margin-bottom: 5%;
+}

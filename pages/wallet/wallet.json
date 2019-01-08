@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "sixpwd": "../components/sixpwd"
+  },
+  "navigationBarTitleText": "我的钱包",
+  "navigationBarBackgroundColor": "#F75E46",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#F75E46"
+}

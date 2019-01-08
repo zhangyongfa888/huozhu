@@ -1,0 +1,47 @@
+<!--pages/cisdomshipper/wallet/recharge.wxml-->
+<view style='height:{{height}}px;'>
+  <view class='parent'>
+    <view wx:for='{{list}}' wx:key='index'>
+      <view class='item0' bindtap='recharge' data-index='{{item}}'>
+        <image class='image' mode='aspectFit' src='https://wx.cisdom.com.cn/public/smallob/image/pic_coupon_bg.png'></image>
+        <text class='money'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!--  支付方式弹窗。。-->
+<view hidden='{{!showPayMethod}}' style='position:fixed;left:0;top:0;'>
+  <view class='zhezhao' bindtap='hidePayMethod'>
+  </view>
+
+  <view class='payMethod'>
+
+    <text class='payMoney'>￥{{payMoney}}</text>
+
+    <text class='payType'>选择支付方式</text>
+
+
+    <view class=' item'>
+      <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_wechat_payment.png' class='icon'></image>
+
+      <text class='payWx'>微信支付</text>
+      <radio class='paychooseWx' bindtap='onCheckdWx' checked='{{wxChecked}}' color='#ec6700'></radio>
+    </view>
+    <!-- <view class=' item'>
+      <image src='../../../src/ic_calendar.png' class='icon'></image>
+
+      <text class='payWx'>支付宝支付</text>
+      <radio class='paychooseWx'></radio>
+    </view> -->
+    <text class='gopay' bindtap='goPay'>去支付</text>
+  </view>
+
+</view>
+<modal hidden="{{!showpwd}}" confirmColor='#ec6700' bindcancel='pwd_cancel' bindconfirm='pwd_confirm'>
+  <view style='height:130px;'>
+    <sixpwd id="sixpass" bind:passwordInput="passInput" bind:forgetPwd="forgetPwd"></sixpwd>
+  </view>
+
+</modal>

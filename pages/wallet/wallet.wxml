@@ -1,0 +1,36 @@
+<view>
+  <view class='banner'>
+
+    <text class='banlance'> {{money}}</text>
+    <text class='tips'>可提现余额</text>
+    <text class='checkingmoney'>审核中余额:￥{{audit_money}}</text>
+  </view>
+
+  <view class='item' bindtap='toNext' id='recharge'>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_recharge_money.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>充值</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+  <view class='item' bindtap='toNext' id='withdraw'>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_deposit.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>提现</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+  <view style='border: 5px solid #f5f5f5'></view>
+  <view class='item' bindtap='toNext' id='tradedetails'>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_balance_detal.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>交易明细</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+  <view class='item' bindtap='toNext' id='cardinfo'>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_bank_card.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>我的卡券</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+
+  <view class='item' bindtap='toNext' id='bankinfo'>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_bank_card.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>银行卡信息</text>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+</view>

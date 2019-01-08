@@ -1,0 +1,55 @@
+.banner {
+  background: #f75e46;
+  height: 300rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banlance {
+  color: white;
+  font-size: 20px;
+}
+
+.tips {
+  margin: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.checkingmoney {
+  color: white;
+  font-size: 14px;
+}
+
+.item {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #d9d9d9;
+}
+.item:active{
+  background:  #d9d9d9;
+}
+
+.text {
+  margin-left: 10px;
+  font-size: 17px;
+  flex-grow: 1;
+}
+
+.icon {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.arrow {
+  margin-right: 10px;
+  width: 13px;
+  height: 13px;
+}

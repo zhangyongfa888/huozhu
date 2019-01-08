@@ -1,0 +1,36 @@
+<!--pages/cisdomshipper/wallet/tradedetails.wxml-->
+<view>
+  <view class='banner'>
+
+    <view bindtap='onChoosed' data-index='0' class='banneritem {{index==0?"banneritemchoosed":""}}'>流水明细</view>
+    <view bindtap='onChoosed' data-index='1' class='banneritem {{index==1?"banneritemchoosed":""}}'>充值明细</view>
+
+  </view>
+
+  <view wx:if='{{list.length==0}}'>
+    <view class='nodata' style='margin-top:190rpx;'>
+      <text style='font-size:18px;color:#555'>暂无数据</text>
+    </view>
+
+  </view>
+  <view wx:else>
+    <view class='scroll' style='margin-top:90rpx;'>
+      <view wx:for='{{list}}' wx:key='index'>
+        <view class='item_line1'>
+          <view class='item_line1_left'>{{item.operate}}</view>
+          <view class='item_line1_right'>{{item.create_time }}</view>
+        </view>
+        <view class='item_line2'>
+          <view class='item_line2_left'>{{item.pay_type==2?"微信支付":item.pay_type==3?"支付宝支付":"余额"}}:{{item.balance}}</view>
+          <view class='item_line2_right'>{{item.money}}</view>
+        </view>
+
+
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>
