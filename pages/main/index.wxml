@@ -90,28 +90,56 @@
       <view id='xianzai' bindtap='addOrder' class='xianzai'>现在用车</view>
 
     </view>
+    <view hidden='{{!showGoodsType}}'>
+      <goodstype bind:chooseGoodsType="chooseGoodsType"></goodstype>
+    </view>
 
+    <view hidden='{{!showCarType}}'>
+      <cartype bind:choosedCarType="choosedCarType"></cartype>
+    </view>
+
+
+    <view class='submit-bottom' hidden='{{tab_index!=0||sendOrder.distance==0}}'>
+      <view class='submit-price-parent'>
+        <text class='submit-price-show'>{{sendOrder.price}}</text>
+        <image class='submit-price-detail' src='http://app.zdhuoyunbao.com/public/smallob/image/ic_price_detail.png' mode='aspectFit'></image>
+      </view>
+    </view>
   </view>
   <!-- 速配单 -->
   <view class='supei' hidden='{{tab_index!=1}}'>
 
+    <image src='http://adm.zdhuoyunbao.com/assets/js/attached/image/20190107/20190107101208_89889.jpg' class='supei-banner'></image>
+
+    <view class='supei-time-parent'>
+      <view class='supei-time-item'>
+
+        <text class='supei-item-title'>取货开始时间</text>
+        <view class='supei-item-choose-time-parent'>
+          <timePicker id='start' bind:time="supeiTime" class='supei-show-time' show='{{supeiOrder.startTimeStr}}'></timePicker>
+
+          <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_calendar.png' mode='aspectFit' class='supei-calandar'></image>
+        </view>
+      </view>
+      <view class='supei-time-item'>
+
+        <text class='supei-item-title'>取货结束时间</text>
+        <view class='supei-item-choose-time-parent'>
+          <timePicker id='end' bind:time="supeiTime" class='supei-show-time' show='{{supeiOrder.endTimeStr}}'></timePicker>
+          <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_calendar.png' mode='aspectFit' class='supei-calandar'></image>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='supei-path'>
+      <path id='supei' path='{{supeiOrder.route}}' type='addorder' bind:chooseRoute="chooseRoute" bind:chooseAddress="chooseAddress">
+      </path>
+
+    </view>
+
+    <button bindtap='peihuoNext' class='supei-submit'>下一步</button>
 
   </view>
 
-</view>
-
-<view hidden='{{!showGoodsType}}'>
-  <goodstype bind:chooseGoodsType="chooseGoodsType"></goodstype>
-</view>
-
-<view hidden='{{!showCarType}}'>
-  <cartype bind:choosedCarType="choosedCarType"></cartype>
-</view>
-
-
-<view class='submit-bottom' hidden='{{tab_index!=0||sendOrder.distance==0}}'>
-  <view class='submit-price-parent'>
-    <text class='submit-price-show'>{{sendOrder.price}}</text>
-    <image class='submit-price-detail' src='http://app.zdhuoyunbao.com/public/smallob/image/ic_price_detail.png' mode='aspectFit'></image>
-  </view>
 </view>

@@ -11,7 +11,7 @@ function getYuYueTime(stamp) {
   var mm = time.getMinutes();
 
   return y + '-' + formatNumber(m) + '-' + formatNumber(d) + ' ' + formatNumber(h) + ':' + formatNumber(mm) 
-  return nowDate.getTime() / 1000;
+  // return nowDate.getTime() / 1000;
 }
 const formatTime = date => {
   const year = date.getFullYear()

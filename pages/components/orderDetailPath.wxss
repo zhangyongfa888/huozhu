@@ -22,9 +22,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 10rpx;
-  color: #333;
+  color: #323232;
   flex-grow: 1;
-  font-size: 34rpx;
+  font-weight: 500;
+  font-size: 30rpx;
 }
 
 .content {

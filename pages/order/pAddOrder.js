@@ -1,4 +1,4 @@
-// pages/route/routeList.js
+// pages/order/pAddOrder.js
 Page({
 
   /**
@@ -12,8 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var supeiOrder=JSON.parse(options.param);
 
-    console.log(options);
+    console.log(supeiOrder)
   },
 
   /**

@@ -107,6 +107,10 @@ Page({
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_wallet.png",
         "navigate": "../wallet/wallet"
       }, {
+        "title": "配货订单",
+        "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_wallet.png",
+        "navigate": "../peihuo/orderList"
+      }, {
         "title": "我的消息",
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_message.png",
         "navigate": "../message/message"
@@ -131,7 +135,38 @@ Page({
     chooseUint: ["吨", "方"],
     cargoweight: "0",
     chooseIndex: 0,
+    supeiOrder: {
+      startTime: 0,
+      endTime: 0,
+      startTimeStr: "请选择取货开始时间",
+      endTimeStr: "请选择取货结束时间",
+      route: [{
+        "mobile": "",
+        "name": "",
+        "province": "",
+        "city": "请选择发货地",
+        "codePath": "",
+        "county": "",
+        "address": "",
+        "lng": "0",
+        "lat": "0",
+        "orderAddress": "",
+        "countyCode": "",
 
+      }, {
+        "mobile": "",
+        "name": "",
+        "province": "",
+        "city": "请选择收货地",
+        "codePath": "",
+        "county": "",
+        "address": "",
+        "lng": "0",
+        "lat": "0",
+        "orderAddress": "",
+        "countyCode": ""
+      }]
+    },
     sendOrder: {
       distance: 0,
       carType: "1",
@@ -278,12 +313,14 @@ Page({
 
   //选择路线
   chooseRoute(e) {
+    var id = e.target.id || "kuaiyun";
+
     if (app.globalData.isLogin == false) {
       getLoginstatus(this);
       return;
     }
     wx.navigateTo({
-      url: '../route/routeList',
+      url: '../route/routeList?from=' + id,
     })
 
   },
@@ -344,6 +381,7 @@ Page({
   },
   //选择地址
   chooseAddress(e) {
+    var id = e.currentTarget.id;
     if (app.globalData.isLogin == false) {
       getLoginstatus(this);
       return;
@@ -377,22 +415,43 @@ Page({
           return;
         }
         console.log(res);
-        var snedOrder = that.data.sendOrder;
 
-        var route = snedOrder.route;
-        route[e.detail]['city'] = res.address;
-        route[e.detail]['address'] = '';
-        route[e.detail]['name'] = '';
-        route[e.detail]['mobile'] = '';
-        route[e.detail]['lng'] = utils.qqMapTransBMap(res.longitude, res.latitude).lng
-        route[e.detail]['lat'] = utils.qqMapTransBMap(res.longitude, res.latitude).lat;
-        route[e.detail]['orderAddress'] = '';
-        snedOrder['route'] = route;
-        that.setData({
-          sendOrder: snedOrder
-        })
+        if (id == 'supei') {
 
-        getPrice(that);
+          var supeiOrder = that.data.supeiOrder;
+
+          var route = supeiOrder.route;
+          route[e.detail]['city'] = res.address;
+          route[e.detail]['address'] = '';
+          route[e.detail]['name'] = '';
+          route[e.detail]['mobile'] = '';
+          route[e.detail]['lng'] = utils.qqMapTransBMap(res.longitude, res.latitude).lng
+          route[e.detail]['lat'] = utils.qqMapTransBMap(res.longitude, res.latitude).lat;
+          route[e.detail]['orderAddress'] = '';
+          supeiOrder['route'] = route;
+          that.setData({
+            supeiOrder: supeiOrder
+          })
+
+        } else {
+          var snedOrder = that.data.sendOrder;
+
+          var route = snedOrder.route;
+          route[e.detail]['city'] = res.address;
+          route[e.detail]['address'] = '';
+          route[e.detail]['name'] = '';
+          route[e.detail]['mobile'] = '';
+          route[e.detail]['lng'] = utils.qqMapTransBMap(res.longitude, res.latitude).lng
+          route[e.detail]['lat'] = utils.qqMapTransBMap(res.longitude, res.latitude).lat;
+          route[e.detail]['orderAddress'] = '';
+          snedOrder['route'] = route;
+          that.setData({
+            sendOrder: snedOrder
+          })
+
+          getPrice(that);
+        }
+
       },
       fail: openSetting,
     })
@@ -541,9 +600,39 @@ Page({
 
   },
   /**
+   * ----------------------------速配---------------------------------------
+   * */
+
+  supeiTime(e) {
+    console.log(e);
+    var supeiOrder = this.data.supeiOrder;
+    var id = e.target.id;
+    if (id == 'start') {
+      supeiOrder.startTimeStr = utils.getYuYueTime(e.detail);
+      supeiOrder.startTime = e.detail;
+    } else {
+      supeiOrder.endTimeStr = utils.getYuYueTime(e.detail);
+      supeiOrder.endTime = e.detail;
+    }
+    this.setData({
+      supeiOrder: supeiOrder
+    });
+  },
+  peihuoNext(e) {
+    var supeiOrder = this.data.supeiOrder
+    wx.navigateTo({
+      url: '../order/pAddOrder?param=' + JSON.stringify(supeiOrder),
+    })
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this;
+    setTimeout(function() {
+      getLoginstatus(that);
+    }, 1000)
+
     var user = wx.getStorageSync('info') || {
       mobile: "",
       head_img: ""

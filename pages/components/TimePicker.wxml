@@ -1,2 +1,2 @@
 <!--pages/components/TimePicker.wxml-->
-<picker mode='multiSelector' range='{{range}}' range-key="{{'name'}}" bindcolumnchange='bindcolumnchange' bindchange='bindchange'>预约</picker>
+<picker mode='multiSelector' range='{{range}}' range-key="{{'name'}}" bindcolumnchange='bindcolumnchange' bindchange='bindchange'>{{show}}</picker>
