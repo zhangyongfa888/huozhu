@@ -101,7 +101,7 @@
 
     <view class='submit-bottom' hidden='{{tab_index!=0||sendOrder.distance==0}}'>
       <view class='submit-price-parent'>
-        <text class='submit-price-show'>{{sendOrder.price}}</text>
+        <text class='submit-price-show'>{{sendOrder.price==0?"运费金额：电议":"￥"+sendOrder.price}}</text>
         <image class='submit-price-detail' src='http://app.zdhuoyunbao.com/public/smallob/image/ic_price_detail.png' mode='aspectFit'></image>
       </view>
     </view>

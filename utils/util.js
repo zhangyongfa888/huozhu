@@ -2,7 +2,7 @@ var bmap = require('bmap-wx.min.js')
 var cisdom = require('cisdom.js');
 
 function getYuYueTime(stamp) {
-  var time = new Date(stamp*1000);
+  var time = new Date(stamp * 1000);
   // console.log("nowDate", nowDate.getTime());
   var y = time.getFullYear();
   var m = time.getMonth() + 1;
@@ -10,7 +10,7 @@ function getYuYueTime(stamp) {
   var h = time.getHours();
   var mm = time.getMinutes();
 
-  return y + '-' + formatNumber(m) + '-' + formatNumber(d) + ' ' + formatNumber(h) + ':' + formatNumber(mm) 
+  return y + '-' + formatNumber(m) + '-' + formatNumber(d) + ' ' + formatNumber(h) + ':' + formatNumber(mm)
   // return nowDate.getTime() / 1000;
 }
 const formatTime = date => {
@@ -174,7 +174,7 @@ function caculatePrice(distance, adcode, cartype, result) {
   var jsb = {
     "type": cartype,
     "adcode": adcode,
-    "distance": distance / 1000
+    "distance": parseFloat(distance / 1000).toFixed(1)
   }
 
 
@@ -183,13 +183,13 @@ function caculatePrice(distance, adcode, cartype, result) {
       result.price(parseFloat(e.data.price).toFixed(2));
     },
     fail(e) {
-      result.price("计算失败");
+      result.price("0");
     }
   });
 
 }
 
-var getPicUrl = 'http://app.zdhuoyunbao.com/public/smallob/image/';
+var getPicUrl = 'https://wx.cisdom.com.cn/public/smallob/image/';
 
 function getResource(name) {
   return getPicUrl + name

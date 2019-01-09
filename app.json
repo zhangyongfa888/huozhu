@@ -28,7 +28,12 @@
     "pages/message/message",
     "pages/setting/rule",
     "pages/peihuo/orderList",
-    "pages/order/pAddOrder"
+    "pages/order/pAddOrder",
+    "pages/order/pWaitOrder",
+    "pages/order/pOrderRemark",
+    "pages/chooseAddress/chooseAddress",
+    "pages/order/pOrderFreight",
+    "pages/route/pRouteList"
   ],
   "window": {
     "backgroundTextStyle": "light",

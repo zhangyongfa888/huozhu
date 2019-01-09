@@ -1,0 +1,12 @@
+<!--pages/order/pWaitOrder.wxml-->
+<view class='bg'>
+
+  <view class='wait-top'>
+
+    <text>正在同时合适的司机\n请耐心等待</text>
+    <button class='wait-add-money'>加价</button>
+
+  </view>
+
+
+</view>

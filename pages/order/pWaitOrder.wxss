@@ -1,0 +1,21 @@
+/* pages/order/pWaitOrder.wxss */
+
+.wait-top {
+  width: 700rpx;
+  margin-left: 25rpx;
+  margin-top: 25rpx;
+  margin-bottom: 25rpx;
+  background: white;
+}
+
+.wait-add-money {
+  position: absolute;
+  right: 0;
+  width: 100rpx;
+  height: 40rpx;
+  background: #f78312;
+}
+
+.wait-add-money {
+  border-radius: 10rpx;
+}

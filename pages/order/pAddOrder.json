@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "goodstype": "../components/showGoodsType"
+  },
+    "navigationBarTitleText": "确认订单"
+    
 }

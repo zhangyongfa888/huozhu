@@ -44,7 +44,7 @@
         </view>
         <view class='content {{(type=="addorder"&&item.address!="")?"divider":""}}'>
           <view> {{item.address}} {{item.orderAddress}}</view>
-          <view>{{item.name}} {{item.name}}</view>
+          <view>{{item.name}} {{item.mobile}}</view>
 
         </view>
 

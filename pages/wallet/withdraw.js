@@ -26,7 +26,7 @@ Page({
   forgetPwd: function(e) {
 
     wx.navigateTo({
-      url: '../wallet/setpassword',
+      url: 'settingpwd',
     })
   },
   //输入的支付密码

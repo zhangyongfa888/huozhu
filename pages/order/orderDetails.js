@@ -24,12 +24,12 @@ function getData(_this) {
       for (var i = 0; i < 2; i++) {
         var qq = utils.bMapTransQQMap(e.data.route[i].lng, e.data.route[i].lat)
         var marker = {
-          iconPath: i == 0 ? "http://app.zdhuoyunbao.com/public/smallob/image/ic_start.png" : "http://app.zdhuoyunbao.com/public/smallob/image/ic_end.png",
+          iconPath: i == 0 ? "http://app.zdhuoyunbao.com/public/smallob/image/ic_main_start_address.png" : "http://app.zdhuoyunbao.com/public/smallob/image/ic_main_end_address.png",
           id: i,
           latitude: qq.lat,
           longitude: qq.lng,
-          width: 30,
-          height: 45
+          width: 26,
+          height: 31
         }
         marks[i] = marker;
 

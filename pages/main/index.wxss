@@ -40,9 +40,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 30rpx;
-  margin: 10rpx;
-  padding: 5rpx 20rpx 5rpx 20rpx;
+  font-size: 28rpx;
+  margin: 15rpx;
+  padding: 5rpx 20rpx 10rpx 20rpx;
   align-self: center;
   border-radius: 25rpx;
   color: black;
@@ -105,6 +105,8 @@
 }
 
 .chooseCity {
+  padding-bottom: 20rpx;
+margin-bottom: 10rpx;
   margin-top: 10rpx;
   background: white;
   width: 700rpx;
