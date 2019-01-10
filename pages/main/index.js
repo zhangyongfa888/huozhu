@@ -7,9 +7,8 @@ const app = getApp();
 
 function getPrice(that) {
 
-  var sendOrder = that.data.sendOrder;
 
-  var route = sendOrder.route;
+  var route = that.data.sendOrder.route;
   if (route.length < 2) {
     return;
   }
@@ -18,41 +17,24 @@ function getPrice(that) {
   ) {
     return;
   }
-  if (sendOrder.category == '2' || sendOrder.carType == 5) { //大车
-    sendOrder['price'] = 0;
-    sendOrder['service'] = "0";
-    that.setData({
-      sendOrder: sendOrder
-    });
+  var category = that.data.sendOrder.category;
+  if (category == 2) { //大车
+
     return;
   }
-  var qqStart = utils.bMapTransQQMap(route[0].lng, route[0].lat);
-  // var qqStart = {
-  // lat: route[0].lat,
-  // lng: route[0].lng
-  // }
-  // var qqEnd = {
-  //   lat: route[route.length - 1].lat,
-  //   lng: route[route.length - 1].lng
-  // }
-  var qqEnd = utils.bMapTransQQMap(route[route.length - 1].lng, route[route.length - 1].lat);
-  console.log("start", qqStart);
-  var start = qqStart.lat + "," + qqStart.lng;
-  var end = qqEnd.lat + "," + qqEnd.lng;
+
+  var start = route[0].lat + "," + route[0].lng;
+  var end = route[route.length - 1].lat + "," + route[route.length - 1].lng;
   var way = "";
   for (var i = 1; i < route.length - 1; i++) {
-    var qqWay = utils.bMapTransQQMap(route[i].lng, route[i].lat);
-    // var qqWay = {
-    //   lat: route[i].lat,
-    //   lng: route[i].lng
-    // }
-    way += qqWay.lat + "," + qqWay.lng + ";";
+    way += route[i].lat + "," + route[i].lng + ";";
   }
   way = way.substring(0, way.length - 1);
   console.log("waypoint:", way);
   // 调用接口 计算距离
   // utils.caculatePrice();
 
+  var sendOrder = that.data.sendOrder;
   map.distance(start, end, way, {
     success(distance) {
       sendOrder['distance'] = distance;
@@ -67,6 +49,7 @@ function getPrice(that) {
             price(price) {
               sendOrder['price'] = price;
               if (price > 0) {
+
                 sendOrder['service'] = "1";
               }
               that.setData({
@@ -116,41 +99,33 @@ Page({
    */
   data: {
     menu: [{
-        "unread": 0,
         "title": "订单记录",
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_order.png",
         "navigate": "../order/orderList"
       }, {
         "title": "我的钱包",
-        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_wallet.png",
         "navigate": "../wallet/wallet"
       }, {
         "title": "配货订单",
-        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_wallet.png",
         "navigate": "../peihuo/orderList"
       }, {
         "title": "我的消息",
-        "unread": 1,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_message.png",
         "navigate": "../message/message"
       }, {
         "title": "客服中心",
-        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_me_contact.png",
         "navigate": "../contact/contact"
       }, {
         "title": "更多设置",
-        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_setting.png",
         "navigate": "../setting/setting"
       }
 
 
     ],
-
-
     tab_index: 0, //快运单还是速配单
     showMenu: false,
     tab_car_list: dataUtils.carTitles,
@@ -175,7 +150,7 @@ Page({
         "address": "",
         "lng": "0",
         "lat": "0",
-        "order_address": "",
+        "orderAddress": "",
         "countyCode": "",
 
       }, {
@@ -188,7 +163,7 @@ Page({
         "address": "",
         "lng": "0",
         "lat": "0",
-        "order_address": "",
+        "orderAddress": "",
         "countyCode": ""
       }]
     },
@@ -197,7 +172,7 @@ Page({
       carType: "1",
       service: "0",
       category: "1",
-      carTypeName: "小面包车",
+      carTypeName: dataUtils.carTitles[0].carTypeName,
       route: [{
         "mobile": "",
         "name": "",
@@ -243,7 +218,9 @@ Page({
   },
   login(e) {
     if (app.globalData.isLogin) {
-
+      this.setData({
+        showMenu: false
+      })
       wx.navigateTo({
         url: '../userinfo/userinfo',
       })
@@ -251,9 +228,6 @@ Page({
       getLoginstatus(this);
 
     }
-    this.setData({
-      showMenu: false
-    })
   },
   navigateTo(e) {
     console.log(e);
@@ -290,18 +264,13 @@ Page({
     tab_car_list[index].isChecked = true;
 
     var sendOrder = this.data.sendOrder;
-    if (index == 6) { //大型货车
+    if (index == 7) { //大型货车
       sendOrder['category'] = "2";
-      sendOrder['carType'] = "";
-      sendOrder['carTypeName'] = "";
-
+      sendOrder['carType'] = tab_car_list[index].id;
+      sendOrder['carTypeName'] = tab_car_list[index].carTypeName;
 
     } else {
       sendOrder['carType'] = "1"
-      sendOrder['category'] = "1";
-
-      sendOrder['carType'] = tab_car_list[index].id;
-      sendOrder['carTypeName'] = tab_car_list[index].carTypeName;
     }
 
     this.setData({
@@ -324,18 +293,15 @@ Page({
 
 
     var sendOrder = this.data.sendOrder;
-    if (index == 6) { //大型货车
+    if (index == 7) { //大型货车
       sendOrder['category'] = "2";
-      sendOrder['carType'] = "";
-      sendOrder['carTypeName'] = "";
-
-
-    } else {
-      sendOrder['category'] = "1";
-      sendOrder['carType'] = "1"
-
       sendOrder['carType'] = tab_car_list[index].id;
       sendOrder['carTypeName'] = tab_car_list[index].carTypeName;
+
+    } else {
+      sendOrder['carType'] = "1"
+      sendOrder['carType'] = "";
+      sendOrder['carTypeName'] = "";
     }
 
     this.setData({
@@ -355,16 +321,9 @@ Page({
       getLoginstatus(this);
       return;
     }
-    if (id == 'kuaiyun') {
-      wx.navigateTo({
-        url: '../route/routeList?from=' + id,
-      })
-    } else {
-      wx.navigateTo({
-        url: '../route/pRouteList?from=' + id,
-      })
-    }
-
+    wx.navigateTo({
+      url: '../route/routeList?from=' + id,
+    })
 
   },
   //添加要给收货地
@@ -424,21 +383,82 @@ Page({
   },
   //选择地址
   chooseAddress(e) {
-
+    var id = e.currentTarget.id;
     if (app.globalData.isLogin == false) {
       getLoginstatus(this);
       return;
     }
-    var id = e.currentTarget.id;
+    var that = this;
+    var openSetting = function(e) {
+      console.log("openSetting", e);
+      var msg = e.errMsg;
+      if (msg.indexOf("deny") != -1) {
+        wx.showToast({
+          title: '请授予小程序访问位置的权限',
+          icon: 'none'
+        })
 
-    wx.navigateTo({
-      url: '../chooseAddress/chooseAddress?id=' + id + "&index=" + e.detail,
+
+      }
+      if (msg.indexOf("cancel") != -1) {
+        wx.showToast({
+          title: '您取消了选择',
+          icon: 'none'
+        })
+
+      }
+
+    }
+
+    console.log(e);
+    wx.chooseLocation({
+      success: function(res) {
+        if (res.name == '') {
+          return;
+        }
+        console.log(res);
+
+        if (id == 'supei') {
+
+          var supeiOrder = that.data.supeiOrder;
+
+          var route = supeiOrder.route;
+          route[e.detail]['city'] = res.address;
+          route[e.detail]['address'] = '';
+          route[e.detail]['name'] = '';
+          route[e.detail]['mobile'] = '';
+          route[e.detail]['lng'] = utils.qqMapTransBMap(res.longitude, res.latitude).lng
+          route[e.detail]['lat'] = utils.qqMapTransBMap(res.longitude, res.latitude).lat;
+          route[e.detail]['orderAddress'] = '';
+          supeiOrder['route'] = route;
+          that.setData({
+            supeiOrder: supeiOrder
+          })
+
+        } else {
+          var snedOrder = that.data.sendOrder;
+
+          var route = snedOrder.route;
+          route[e.detail]['city'] = res.address;
+          route[e.detail]['address'] = '';
+          route[e.detail]['name'] = '';
+          route[e.detail]['mobile'] = '';
+          route[e.detail]['lng'] = utils.qqMapTransBMap(res.longitude, res.latitude).lng
+          route[e.detail]['lat'] = utils.qqMapTransBMap(res.longitude, res.latitude).lat;
+          route[e.detail]['orderAddress'] = '';
+          snedOrder['route'] = route;
+          that.setData({
+            sendOrder: snedOrder
+          })
+
+          getPrice(that);
+        }
+
+      },
+      fail: openSetting,
     })
 
   },
-
-
-
   //点击预约 现在用车 跳转获取用户信息  只能通过点击获取微信用户信息
   addOrder(e) {
     if (app.globalData.isLogin == false) {
@@ -446,8 +466,6 @@ Page({
       return;
     }
     var sendOrder = this.data.sendOrder;
-
-
 
     var isAuth = app.globalData.isAuth;
     console.log("isAuth", isAuth);
@@ -459,21 +477,6 @@ Page({
 
       return;
     }
-
-
-    var route = sendOrder.route;
-
-    if (route[0].lat.length == 0 || route[0].lng.length == 0 || route[1].lat.length == 0 || route[1].lng.length == 0 ||
-      route[0].lat == '0' || route[0].lng == '0' || route[1].lat == '0' || route[1].lng == '0'
-    ) {
-      wx.showToast({
-        icon: 'none',
-
-        title: '请完善信息',
-      })
-      return;
-    }
-
     var sendOrder = this.data.sendOrder;
     var date = new Date();
     var minute = 0;
@@ -618,28 +621,7 @@ Page({
     });
   },
   peihuoNext(e) {
-    var supeiOrder = this.data.supeiOrder;
-    if (supeiOrder.startTime == 0) {
-      wx.showToast({
-        title: '请选择取货开始时间',
-        icon: "none"
-      })
-      return;
-    }
-    if (supeiOrder.endTime == 0) {
-      wx.showToast({
-        title: '请选择取货结束时间',
-        icon: "none"
-      })
-      return;
-    }
-    if (supeiOrder.route[0].lat == 0 || supeiOrder.route[1].lat == 0) {
-      wx.showToast({
-        title: '请完善地址信息',
-        icon: "none"
-      })
-      return;
-    }
+    var supeiOrder = this.data.supeiOrder
     wx.navigateTo({
       url: '../order/pAddOrder?param=' + JSON.stringify(supeiOrder),
     })
@@ -674,6 +656,7 @@ Page({
    */
   onShow: function() {
     getPrice(this);
+
   },
 
   /**

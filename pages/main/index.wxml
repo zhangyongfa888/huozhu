@@ -1,19 +1,21 @@
 <!--pages/main/index.wxml-->
-<act></act>
 
 <view class="menu" hidden='{{!showMenu}}'>
   <view class='menu-top' bindtap='login'>
-    <image src='{{userinfo.head_img}}' mode='aspectFit' class='menu-head'></image>
+    <view wx:if="{{userinfo.head_img == ''}}">
+      <image src="https://wx.cisdom.com.cn/public/smallob/image/ic_main_menu_head.png" mode='aspectFit' class='menu-head'></image>
+    </view>
+    <view wx:else>
+      <image src='{{userinfo.head_img}}' mode='aspectFit' class='menu-head'></image>
+    </view>
     <text>{{userinfo.mobile==""?"立即登录":userinfo.mobile}}</text>
   </view>
 
 
   <block wx:for='{{menu}}' wx:key='index'>
     <view class='menu-item' bindtap='navigateTo' data-navigate='{{item.navigate}}'>
-      <image src='{{item.image}}' mode='aspectFit' class='menu-item-img'></image>
+        <image src='{{item.image}}' mode='aspectFit' class='menu-item-img'></image>
       <text class='menu-item-title'>{{item.title}}</text>
-      <text class='unread-num' hidden='{{item.unread==0}}'>{{item.unread}}</text>
-
     </view>
   </block>
   <view bindtap='cancelMenu' class='overlay'>
@@ -78,13 +80,14 @@
     </view>
 
     <view class='chooseCity'>
-      <path id='kuaiyun' path='{{sendOrder.route}}' type='addorder' bind:chooseRoute="chooseRoute" bind:deleteRoute="deleteRoute" bind:chooseAddress="chooseAddress"></path>
+      <path path='{{sendOrder.route}}' type='addorder' bind:chooseRoute="chooseRoute" bind:deleteRoute="deleteRoute" bind:chooseAddress="chooseAddress"></path>
       <view class='addMoreAddress' hidden='{{sendOrder.route.length>5}}' bindtap='addMoreCity'>
         <text style='font-size:40rpx;color:#000;'>+</text>
         <text style='font-size:32rpx;color:#333;margin-left: 10rpx;'>添加地址</text>
         <text style='font-size:28rpx;color:#999;margin-left: 10rpx;'>请按照卸货先后顺序填写</text>
       </view>
     </view>
+
     <view class='confirm-order' hidden='{{tab_index!=0}}'>
 
       <timePicker id='yuyue' bind:time="yuyueTime" class='yuyue' show="预约">
@@ -103,7 +106,7 @@
 
     <view class='submit-bottom' hidden='{{tab_index!=0||sendOrder.distance==0}}'>
       <view class='submit-price-parent'>
-        <text class='submit-price-show'>{{sendOrder.price==0?"运费金额：电议":"￥"+sendOrder.price}}</text>
+        <text class='submit-price-show'>{{sendOrder.price}}</text>
         <image class='submit-price-detail' src='http://app.zdhuoyunbao.com/public/smallob/image/ic_price_detail.png' mode='aspectFit'></image>
       </view>
     </view>

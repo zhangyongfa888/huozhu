@@ -53,12 +53,6 @@ Component({
     let minute = [];
     let currentMinute = date.getMinutes();
     var left = 10 - currentMinute % 10;
-
-    if (date.getMinutes() > 50) {
-      currentMinute = 0;
-      left = 0;
-    }
-
     for (var i = currentMinute + left; i < 60; i += 10) {
       minute.push({
         name: i + "分",
@@ -111,7 +105,7 @@ Component({
       console.log("time:---->", range[0][dayIndex].value, range[1][hourIndex].value, range[2][minuteIndex].value)
       var timeStamp = range[0][dayIndex].value + range[1][hourIndex].value + range[2][minuteIndex].value;
       console.log(timeStamp);
-      this.triggerEvent("time", timeStamp);
+      this.triggerEvent("time",timeStamp);
 
 
     },
@@ -230,10 +224,7 @@ Component({
         let minute = [];
         let currentMinute = date.getMinutes();
         var left = currentMinute + 10 - currentMinute % 10;
-        if (date.getMinutes() > 50) {
-          currentMinute = 0;
-          left = 0;
-        }
+
         if (value == 0) { //当前点
           for (var i = left; i < 60; i += 10) {
             minute.push({

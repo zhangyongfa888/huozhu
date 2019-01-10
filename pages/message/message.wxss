@@ -1,69 +1,7 @@
 /* pages/tools/message.wxss */
 
-.mine-icon-num {
-  width: 20rpx;
-  background: #e63700;
-  text-align: center;
-  color: white;
-  padding: 2rpx;
-  border-radius: 20rpx;
-  height: 20rpx;
-  font-size: 16rpx;
-  align-self: flex-start;
-}
-
-.banner {
-  z-index: 2;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background: #fff;
-  height: 50rpx;
-  width: 100%;
-  padding: 20rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  font-size: 15px;
-}
-
-.banneritem {
-  flex-direction: row;
-  display: flex;
-  width: auto;
-  margin: 20rpx auto;
-  text-align: center;
-  padding-bottom: 10rpx;
-  color: #666;
-}
-
-.banneritemchoosed {
-  width: auto;
-  margin: 20rpx auto;
-  text-align: center;
-  flex-direction: row;
-  display: flex;
-  padding-bottom: 10rpx;
-  color: #ec6700;
-}
-
-.border-choosed {
-  border-bottom: 4rpx solid #ec6700;
-}
-
-.border {
-  border-bottom: 4rpx solid white;
-}
-
-.scroll {
-  z-index: 1;
-}
-
 .parent {
   width: 750rpx;
-  margin-top: 90rpx;
   font-size: 15px;
   display: flex;
   flex-direction: column;
@@ -107,9 +45,9 @@
   flex-direction: row;
 }
 
-.title {
+.title { 
   color: #111;
-  flex-grow: 1;
+ flex-grow: 1;
 }
 
 .time {
@@ -117,6 +55,6 @@
 }
 
 .content {
-  color: #666;
+   color: #666;
   flex-grow: 1;
 }

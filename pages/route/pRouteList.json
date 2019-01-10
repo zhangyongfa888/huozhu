@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "常用路线",
-  "usingComponents": {
-    "path": "../components/orderDetailPath"
-  }
-}
