@@ -46,7 +46,7 @@ function request(method, data, callback) {
   var user = wx.getStorageSync('info') || null;
   if (user != null) {
     data.token = user.token
-    data.id = user.user_id
+    data.id = user.id
   }
   //data 加密
   data.sign = getAppkey();
@@ -129,7 +129,7 @@ function uploadFile(filePath, data, callback) {
   var driver = wx.getStorageSync('info') || null;
   if (driver != null) {
     data.token = driver.token
-    data.id = driver.user_id
+    data.id = driver.id
   }
   //data 加密
   data.sign = getAppkey();

@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sex:"",
-    name:"",
-    mobile :""
+    sex: "",
+    name: "",
+    mobile: "",
+    head_img: "https://wx.cisdom.com.cn/public/smallob/image/ic_main_menu_head.png"
   },
   /**
    * 跳转到昵称页面
    */
-  toName:function(){
+  toName: function() {
     wx.navigateTo({
       url: 'username',
     })
@@ -20,31 +21,30 @@ Page({
   /**
    * 点击更换头像
    */
-  toPic:function(){
+  toPic: function() {
+    var that = this;
     wx.chooseImage({
       count: 1,
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         var tempFilePaths = res.tempFilePaths;
         cisdom.uploadFile(tempFilePaths[0], {
           type: "1"
         }, {
-            success: function (e) {
-              var userinfo = that.data.userinfo;
-              userinfo.pic = tempFilePaths[0];
-              that.setData({
-                userinfo: userinfo
-              });
-            },
-            fail: function (e) { }
-          });
+          success: function(e) {
+           that.setData({
+             head_img: tempFilePaths[0]
+           })
+          },
+          fail: function(e) {}
+        });
       },
     })
   },
   /**
    * 更换性别
    */
-  toSex:function(){
+  toSex: function() {
     // var choose = 
     // wx.showModal({
     //   showCancel: false,
@@ -57,12 +57,14 @@ Page({
       itemList: ['男', '女'],
       success(res) {
         console.log(res.tapIndex);
-        if(res.tapIndex == 0){
+        if (res.tapIndex == 0) {
           sex = '男';
-        }else{
+        } else {
           sex = '女';
         }
-        self.setData({sex});
+        self.setData({
+          sex
+        });
       },
       fail(res) {
         console.log(res.errMsg)
@@ -71,15 +73,15 @@ Page({
     console.log("选择了：{}", self.data.sex);
     //进入修改性别方法
     var sex = "";
-    if (self.data.sex == 0){
+    if (self.data.sex == 0) {
       sex = 1;
-    }else{
+    } else {
       sex = 2;
     }
     var params = {
       sex
     };
-    console.log("修改性别-准备参数：{}",params);
+    console.log("修改性别-准备参数：{}", params);
     cisdom.request("sex", params, {
       success(e) {
         console.log("修改成功");
@@ -92,21 +94,27 @@ Page({
   /**
    * 更换手机号
    */
-  toTel:function(){
+  toTel: function() {
     wx.navigateTo({
       url: 'usertel',
     })
   },
   //获取用户信息
-  getUserInfo: function () {
+  getUserInfo: function() {
     //获取用户信息
     var self = this;
     var params = {};
     cisdom.request("UserInfo", params, {
       success(e) {
         console.log("获取用户信息成功", e);
-        wx.setStorageSync("info", e.data);
         var user = wx.getStorageSync("info");
+
+        user['sex'] = e.data.sex;
+        user['mobile'] = e.data.mobile;
+        user['name'] = e.data.name;
+        user['head_img'] = e.data.head_img;
+
+        wx.setStorageSync("info", user);
         console.log("获取人员信息：{}", user);
         var sex = "";
         if (user.sex == 1) {
@@ -116,7 +124,12 @@ Page({
         }
         var phone = user.mobile;
         var mobile = phone.slice(0, 3) + "****" + phone.slice(7, 11);
-        self.setData({ name: user.name, sex, mobile: mobile });
+        self.setData({
+          name: user.name,
+          sex,
+          mobile: mobile,
+          head_img: user.head_img
+        });
       },
       fail(e) {
         console.log("获取用户信息失败");
@@ -131,7 +144,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getUserInfo();
     // console.log("初始sex:{}",this.data.sex);
   },
@@ -139,49 +152,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    this.getUserInfo();
+  onShow: function() {
+    // this.getUserInfo();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

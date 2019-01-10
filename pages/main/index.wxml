@@ -7,7 +7,7 @@
       <image src="https://wx.cisdom.com.cn/public/smallob/image/ic_main_menu_head.png" mode='aspectFit' class='menu-head'></image>
     </view>
     <view wx:else>
-      <image src='{{userinfo.head_img}}' mode='aspectFit' class='menu-head'></image>
+      <image src='{{userinfo.head_img}}'  class='menu-head'></image>
     </view>
     <text>{{userinfo.mobile==""?"立即登录":userinfo.mobile}}</text>
   </view>

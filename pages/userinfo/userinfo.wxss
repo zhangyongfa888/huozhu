@@ -33,11 +33,12 @@ page{
   margin-top:9%;
 }
 .img1{
-  width:150rpx;
-  height:150rpx;
+  width:120rpx;
+  height:120rpx;
   position:relative;
   margin-left:45%;
   margin-top:6%;
+   border-radius: 60rpx;
 }
 .user-name{
   height: 85rpx;
