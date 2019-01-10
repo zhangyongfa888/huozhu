@@ -8,7 +8,7 @@ Page({
     sex: "",
     name: "",
     mobile: "",
-    head_img: "https://wx.cisdom.com.cn/public/smallob/image/ic_main_menu_head.png"
+    head_img: ""
   },
   /**
    * 跳转到昵称页面
@@ -32,9 +32,9 @@ Page({
           type: "1"
         }, {
           success: function(e) {
-           that.setData({
-             head_img: tempFilePaths[0]
-           })
+            that.setData({
+              head_img: tempFilePaths[0]
+            })
           },
           fail: function(e) {}
         });
@@ -112,7 +112,10 @@ Page({
         user['sex'] = e.data.sex;
         user['mobile'] = e.data.mobile;
         user['name'] = e.data.name;
-        user['head_img'] = e.data.head_img;
+    
+          user['head_img'] = e.data.head_img;
+
+     
 
         wx.setStorageSync("info", user);
         console.log("获取人员信息：{}", user);

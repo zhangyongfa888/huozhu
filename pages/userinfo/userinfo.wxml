@@ -5,7 +5,7 @@
   <p bindtap="toPic">
       <view class='user-header'>头像</view>
       <view class='user-img'>
-        <image class='img1' src="{{head_img}}"></image>  
+        <image class='img1' src='{{head_img==""?"https://wx.cisdom.com.cn/public/smallob/image/ic_main_menu_head.png":head_img}}'></image>  
         <image class='img2' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image> 
       </view>
   </p>
