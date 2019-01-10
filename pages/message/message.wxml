@@ -1,4 +1,18 @@
 <!--pages/tools/message.wxml-->
+
+<view class='banner'>
+
+  <view bindtap='onChoosed' data-index='0' class='{{index==0?"banneritemchoosed":"banneritem"}}'>
+    <text class='{{index==0?"border-choosed":"border"}}'>聊天信息</text>
+    <text class='mine-icon-num'>1</text>
+
+  </view>
+  <view bindtap='onChoosed' data-index='1' class=' {{index==1?"banneritemchoosed border-choosed":"banneritem border"}}'>系统消息</view>
+
+</view>
+
+
+
 <view class='parent'>
   <view wx:if='{{list.length==0}}'>
     <text class='nodata'>暂无数据</text>

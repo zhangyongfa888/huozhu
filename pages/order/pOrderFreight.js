@@ -17,16 +17,22 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
+
     this.setData({
       price: options.price,
-      distance: options.distance
+      distance: options.distance,
+      orderCode: options.orderCode
     })
-
-    console.log(options);
-    cisdom.request("AllotFreight", {
+    var orderCode = options.orderCode || false;
+    var param = (orderCode == false ? {
       adcode: options.adcode,
-      distance: options.distance
-    }, {
+      distance: options.distance,
+    } : {
+      adcode: options.adcode,
+      distance: options.distance,
+      order_code: options.orderCode
+    });
+    cisdom.request("AllotFreight", param, {
       success(e) {
 
         var list = e.data;

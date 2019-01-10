@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "订单列表"
+  "navigationBarTitleText": "配货订单",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "path": "../components/orderDetailPath"
+  }
 }

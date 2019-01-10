@@ -8,6 +8,19 @@
   height: 40rpx;
 }
 
+.unread-num {
+  align-self: flex-start;
+  width: 20rpx;
+  background: #e63700;
+  text-align: center;
+  color: white;
+  margin-top: 10rpx;
+  padding: 2rpx;
+  border-radius: 20rpx;
+  height: 20rpx;
+  font-size: 16rpx;
+}
+
 .mine-icon-num {
   position: absolute;
   left: 35rpx;
@@ -106,7 +119,7 @@
 
 .chooseCity {
   padding-bottom: 20rpx;
-margin-bottom: 10rpx;
+  margin-bottom: 10rpx;
   margin-top: 10rpx;
   background: white;
   width: 700rpx;
@@ -395,6 +408,7 @@ margin-bottom: 10rpx;
   border-radius: 4px;
   border: 0;
 }
-.supei-submit:active{
-  color: rgba(255,255,255,0.5);
+
+.supei-submit:active {
+  color: rgba(255, 255, 255, 0.5);
 }

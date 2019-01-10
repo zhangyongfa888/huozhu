@@ -116,27 +116,33 @@ Page({
    */
   data: {
     menu: [{
+        "unread": 0,
         "title": "订单记录",
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_order.png",
         "navigate": "../order/orderList"
       }, {
         "title": "我的钱包",
+        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_wallet.png",
         "navigate": "../wallet/wallet"
       }, {
         "title": "配货订单",
+        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_wallet.png",
         "navigate": "../peihuo/orderList"
       }, {
         "title": "我的消息",
+        "unread": 1,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_message.png",
         "navigate": "../message/message"
       }, {
         "title": "客服中心",
+        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_me_contact.png",
         "navigate": "../contact/contact"
       }, {
         "title": "更多设置",
+        "unread": 0,
         "image": "https://wx.cisdom.com.cn/public/smallob/image/ic_menu_setting.png",
         "navigate": "../setting/setting"
       }
@@ -245,6 +251,9 @@ Page({
       getLoginstatus(this);
 
     }
+    this.setData({
+      showMenu: false
+    })
   },
   navigateTo(e) {
     console.log(e);
@@ -346,9 +355,16 @@ Page({
       getLoginstatus(this);
       return;
     }
-    wx.navigateTo({
-      url: '../route/routeList?from=' + id,
-    })
+    if (id == 'kuaiyun') {
+      wx.navigateTo({
+        url: '../route/routeList?from=' + id,
+      })
+    } else {
+      wx.navigateTo({
+        url: '../route/pRouteList?from=' + id,
+      })
+    }
+
 
   },
   //添加要给收货地
@@ -416,94 +432,10 @@ Page({
     var id = e.currentTarget.id;
 
     wx.navigateTo({
-      url: '../chooseAddress/chooseAddress?id='+id+"&index="+e.detail,
+      url: '../chooseAddress/chooseAddress?id=' + id + "&index=" + e.detail,
     })
- 
-    // var that = this;
-    // var openSetting = function(e) {
-    //   console.log("openSetting", e);
-    //   var msg = e.errMsg;
-    //   if (msg.indexOf("deny") != -1) {
-    //     wx.showToast({
-    //       title: '请授予小程序访问位置的权限',
-    //       icon: 'none'
-    //     })
-
-
-    //   }
-    //   if (msg.indexOf("cancel") != -1) {
-    //     wx.showToast({
-    //       title: '您取消了选择',
-    //       icon: 'none'
-    //     })
-
-    //   }
-
-    // }
-
-    // console.log(e);
-    // wx.chooseLocation({
-    //   success: function(res) {
-    //     if (res.name == '') {
-    //       return;
-    //     }
-    //     var start = res.latitude + "," + res.longitude;
-    //     console.log(res);
-    //     if (id == 'supei') {
-    //       map.getCityInfo(start, {
-    //         success(result) {
-    //           console.log("address", result);
-    //           var supeiOrder = that.data.supeiOrder;
-    //           var route = supeiOrder.route;
-    //           route[e.detail] = result;
-    //           route[e.detail]['lng'] = utils.qqMapTransBMap(result.lng, result.lat).lng
-    //           route[e.detail]['lat'] = utils.qqMapTransBMap(result.lng, result.lat).lat;
-    //           route[e.detail]['name'] = "";
-    //           route[e.detail]['mobile'] = "";
-    //           route[e.detail]['order_address'] = "";
-
-    //           supeiOrder['route'] = route;
-
-    //           that.setData({
-    //             supeiOrder: supeiOrder,
-    //             showAddInfo: "s_" + e.detail
-    //           })
-    //         }
-    //       });
-
-    //     } else {
-
-    //       map.getCityInfo(start, {
-    //         success(result) {
-    //           var sendOrder = that.data.sendOrder;
-    //           var route = sendOrder.route;
-    //           console.log("address", result);
-    //           route[e.detail] = result;
-    //           route[e.detail]['lng'] = utils.qqMapTransBMap(result.lng, result.lat).lng
-    //           route[e.detail]['lat'] = utils.qqMapTransBMap(result.lng, result.lat).lat;
-    //           route[e.detail]['name'] = "";
-    //           route[e.detail]['mobile'] = "";
-    //           sendOrder['route'] = route;
-
-    //           that.setData({
-    //             sendOrder: sendOrder,
-    //             showAddInfo: "k_" + e.detail
-    //           })
-
-
-    //         }
-    //       });
-
-
-    //       getPrice(that);
-    //     }
-
-    //   },
-    //   fail: openSetting,
-    // })
 
   },
-
 
 
 
@@ -515,6 +447,8 @@ Page({
     }
     var sendOrder = this.data.sendOrder;
 
+
+
     var isAuth = app.globalData.isAuth;
     console.log("isAuth", isAuth);
 
@@ -525,6 +459,21 @@ Page({
 
       return;
     }
+
+
+    var route = sendOrder.route;
+
+    if (route[0].lat.length == 0 || route[0].lng.length == 0 || route[1].lat.length == 0 || route[1].lng.length == 0 ||
+      route[0].lat == '0' || route[0].lng == '0' || route[1].lat == '0' || route[1].lng == '0'
+    ) {
+      wx.showToast({
+        icon: 'none',
+
+        title: '请完善信息',
+      })
+      return;
+    }
+
     var sendOrder = this.data.sendOrder;
     var date = new Date();
     var minute = 0;
@@ -725,7 +674,6 @@ Page({
    */
   onShow: function() {
     getPrice(this);
-
   },
 
   /**

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "常用路线",
+  "navigationBarTitleText": "添加常用路线",
   "usingComponents": {
     "path": "../components/orderDetailPath"
   }

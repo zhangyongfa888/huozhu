@@ -56,7 +56,7 @@
       <view class='p-order-info-addpic'>
         <view class='p-order-info-item' style='height:auto;'>
           <block wx:for='{{pics}}' style='height:auto;'>
-            <image class='p-order-addpic' src='{{item}}' bindtap='uploadImage' bindlongpress='deleteImage'  data-index='{{index}}'></image>
+            <image class='p-order-addpic' src='{{item}}' bindtap='uploadImage' bindlongpress='deleteImage' data-index='{{index}}'></image>
           </block>
         </view>
         <text class='tips'>货物图片最多不超过3张</text>
@@ -90,10 +90,10 @@
     </view>
   </view>
 
-  <view class='submit-bottom' bindtap='orderFreight'>
+  <view class='submit-bottom'>
     <view class='submit-price-parent'>
       <text class='submit-price-show'>￥{{allotAdd.money}}</text>
-      <text class='submit-price-detail color'>运费详情</text>
+      <text class='submit-price-detail color' bindtap='orderFreight'>运费详情</text>
     </view>
     <button bindtap='submit' class='supei-submit'>下一步</button>
 

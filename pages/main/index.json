@@ -3,6 +3,8 @@
     "path": "../components/orderDetailPath",
     "goodstype": "../components/showGoodsType",
     "cartype": "../components/showCarLengthType",
-    "timePicker":"../components/TimePicker"
+    "timePicker": "../components/TimePicker",
+    "act": "../components/actInfo"
+
   }
 }

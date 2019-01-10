@@ -1,21 +1,13 @@
-/* pages/route/pRouteList.wxss */
-/* pages/route/routeList.wxss */
+/* pages/route/addRoute.wxss */
 
 .parent {
-  padding-bottom: 80rpx;
+  margin-top: 10rpx;
 }
 
-.title {
-  margin: 10rpx;
+.input {
+  padding-left: 25rpx;
   font-size: 30rpx;
-  color: #343434;
 }
-
-.item {
-  padding: 20rpx;
-  border-bottom: 1rpx solid #dcdcdc;
-}
-
 .addroute {
   box-sizing: border-box;
   text-align: center;

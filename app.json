@@ -33,7 +33,9 @@
     "pages/order/pOrderRemark",
     "pages/chooseAddress/chooseAddress",
     "pages/order/pOrderFreight",
-    "pages/route/pRouteList"
+    "pages/route/pRouteList",
+    "pages/route/addRoute",
+    "pages/peihuo/orderDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

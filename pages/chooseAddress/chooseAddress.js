@@ -74,7 +74,7 @@ Page({
         }
       });
 
-    } else {
+    } else if (id == 'kuaiyun') {
 
       map.getCityInfo(start, {
         success(result) {
@@ -100,6 +100,52 @@ Page({
       });
 
 
+
+
+    } else if (id == 'supei_addroute') {
+
+      map.getCityInfo(start, {
+        success(result) {
+          var route = prevPage.data.route;
+          route[index] = result;
+          route[index]['lng'] = utils.qqMapTransBMap(result.lng, result.lat).lng
+          route[index]['lat'] = utils.qqMapTransBMap(result.lng, result.lat).lat;
+          route[index]['name'] = that.data.contactser;
+          route[index]['mobile'] = that.data.con_mobile;
+          route[index]['order_address'] = that.data.order_address;
+          console.log("supei_addroute", route);
+
+          prevPage.setData({
+            route: route,
+          })
+
+
+        }
+      });
+
+
+    } else if (id == 'kuaiyun_addroute') {
+
+      map.getCityInfo(start, {
+        success(result) {
+          var route = prevPage.data.route;
+          route[index] = result;
+          route[index]['lng'] = utils.qqMapTransBMap(result.lng, result.lat).lng
+          route[index]['lat'] = utils.qqMapTransBMap(result.lng, result.lat).lat;
+
+          route[index]['name'] = that.data.contactser;
+          route[index]['mobile'] = that.data.con_mobile;
+          route[index]['orderAddress'] = that.data.order_address;
+
+          console.log("kuaiyun_addroute", route);
+
+          prevPage.setData({
+            route: route,
+          })
+
+
+        }
+      });
 
 
     }
@@ -147,7 +193,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that=this;
+    var that = this;
     this.setData({
       id: options.id,
       index: options.index
