@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "path":"../components/orderDetailPath",
+    "driverInfo": "../components/driverInfo"
+       
+  },
+  "navigationBarTitleText": "待接单"
+}

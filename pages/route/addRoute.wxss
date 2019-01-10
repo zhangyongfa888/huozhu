@@ -1,0 +1,26 @@
+/* pages/route/addRoute.wxss */
+
+.parent {
+  margin-top: 10rpx;
+}
+
+.input {
+  padding-left: 25rpx;
+  font-size: 30rpx;
+}
+.addroute {
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  padding: 18rpx;
+  background: #f78312;
+  color: white;
+  font-size: 30rpx;
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+}

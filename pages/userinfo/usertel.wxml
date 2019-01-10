@@ -1,9 +1,0 @@
-<!--pages/userinfo/usertel.wxml-->
-<view class='tel-body'>
-  <view class='tel-phone'>
-    <view class='menu1'>手机号</view>
-    <view class='menu2'>{{mobile}}</view>
-  </view>
-  <view class='btn' bindtap='toTel'><span>更改手机号</span></view>
-  <view class='bat'>更换后账户信息不变，当前号码作废，下次需使用新手机号登录</view>
-</view>

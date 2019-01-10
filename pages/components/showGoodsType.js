@@ -5,9 +5,30 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    isPeiHuo: Boolean,
+    list: Array,
 
   },
 
+  attached() {
+    if (!this.data.isPeiHuo) {
+      this.setData({
+        list: dataUtils.goodsData,
+        children: dataUtils.goodsData[0].children,
+      })
+    } else {
+      var list = this.data.list;
+      var children = [];
+      if (list.length > 0) {
+        children = list[0].children;
+      }
+
+      this.setData({
+        list: list,
+        children: children,
+      })
+    }
+  },
   /**
    * 组件的初始数据
    */
@@ -34,19 +55,30 @@ Component({
       }
       list[index]['isChecked'] = true;
       console.log(list);
-      var children = dataUtils.goodsData[index].children;
 
-      for (var i in children) {
-        children[i]['isChecked'] = false;
+      var children = list[index].children || false;
+
+      if (!children) { //没有子数据
+        this.setData({
+          list: list,
+          children: [],
+          pindex: index,
+          cindex: -1
+        })
+      } else {
+        for (var i in children) {
+          children[i]['isChecked'] = false;
+        }
+        children[0]['isChecked'] = true;
+
+        this.setData({
+          list: list,
+          children: children,
+          pindex: index,
+          cindex: 0
+        })
       }
-      children[0]['isChecked'] = true;
 
-      this.setData({
-        list: list,
-        children: children,
-        pindex: index,
-        cindex: 0
-      })
     },
     onChildItemCheck(e) {
       var index = e.currentTarget.dataset.childindex;
@@ -71,8 +103,8 @@ Component({
       var children = this.data.children;
       var pindex = this.data.pindex;
       var cindex = this.data.cindex;
-      console.log("p", list[pindex]);
-      console.log("c", children[cindex]);
+      // console.log("p", list[pindex]);
+      // console.log("c", children[cindex]);
       if (pindex == -1) {
         wx.showToast({
           title: '请选择货物类型',
@@ -82,7 +114,10 @@ Component({
       }
       this.triggerEvent("chooseGoodsType", {
         cargoCategory: list[pindex], //大类
-        cargoType: children[cindex] //子类
+        cargoType: children[cindex] || {
+          "cargo_type": "",
+          "id": "0"
+        } //子类
       });
     }
   }

@@ -1,0 +1,11 @@
+/* pages/components/ratingBar.wxss */
+
+.item {
+  display: inline-block;
+}
+
+.img {
+  width: 30rpx;
+  margin: 5rpx;
+  height: 30rpx;
+}

@@ -4,44 +4,57 @@ var cisdom = require("../../utils/cisdom.js");
 function getData(that) {
   var page = that.data.page;
 
-  cisdom.request("myMessage", {
-    page: page,
-    pageSize: 20
-  }, {
 
-    success: function(e) {
-      wx.stopPullDownRefresh();
+  var index = that.data.index;
 
-      var list = that.data.list;
-      if (e.data.length == 0 && page == 1) {
-        that.setData({
-          page: 1,
-          list: []
-        })
+  if (index == 0) {
+    that.setData({
+      page: 1,
+      list: []
+    })
+  } else {
+    cisdom.request("myMessage", {
+      page: page,
+      pageSize: 20
+    }, {
+      success: function(e) {
+        wx.stopPullDownRefresh();
 
-      } else if (e.data.length == 0 && page != 1) {
-        wx.showToast({
-          title: '没有更多数据了',
-          icon: 'none'
-        })
-        that.setData({
-          page: page - 1,
-        })
+        var list = that.data.list;
+        if (e.data.length == 0 && page == 1) {
+          that.setData({
+            page: 1,
+            list: []
+          })
 
-      } else {
-        for (var i = 0; i < e.data.length; i++) {
-          list.push(e.data[i])
+        } else if (e.data.length == 0 && page != 1) {
+          wx.showToast({
+            title: '没有更多数据了',
+            icon: 'none'
+          })
+          that.setData({
+            page: page - 1,
+          })
+
+        } else {
+          for (var i = 0; i < e.data.length; i++) {
+            list.push(e.data[i])
+          }
+          that.setData({
+            list: list,
+          })
         }
-        that.setData({
-          list: list,
-        })
-      }
-    },
-    fail: function(e) {
-      wx.stopPullDownRefresh();
-    },
+      },
+      fail: function(e) {
+        wx.stopPullDownRefresh();
+      },
 
-  });
+    });
+  }
+
+
+
+
 }
 Page({
 
@@ -51,9 +64,19 @@ Page({
   data: {
 
     page: 1,
-    list: []
+    list: [],
+    index: 0,
   },
 
+  onChoosed(e) {
+    this.setData({
+      index: e.currentTarget.dataset.index,
+      page: 1,
+    });
+
+    getData(this);
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

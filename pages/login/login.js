@@ -21,6 +21,9 @@ function startCountDown() {
     _this.setData({
       count: timeshow
     });
+
+
+
   }, 1000)
 
 }

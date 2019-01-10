@@ -1,0 +1,3 @@
+<!--pages/peihuo/orderDetails.wxml-->
+<text>pages/peihuo/orderDetails.wxml</text>
+  <ratingBar number='1' isShow='true'></ratingBar>

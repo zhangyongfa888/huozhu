@@ -1,0 +1,8 @@
+<!--pages/components/ratingBar.wxml-->
+
+<view wx:for='{{totalSize}}' wx:key='index' class='item'>
+
+  <image src='{{item?"https://wx.cisdom.com.cn/public/smallob/image/ic_eva_checked_new.png":"https://wx.cisdom.com.cn/public/smallob/image/ic_eva_nochecked_new.png"}}' class='img' bindtap='{{isShow?"":"onTapItem"}}' data-index='{{index}}'></image>
+
+
+</view>

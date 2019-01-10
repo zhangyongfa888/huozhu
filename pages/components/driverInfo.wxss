@@ -1,0 +1,55 @@
+/* pages/components/driverInfo.wxss */
+
+.item-head {
+  margin-left: 20rpx;
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.item-line1 {
+  align-items: center;
+  align-content: center;
+  height: 140rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-line1-right {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.item-line1-img {
+  display: flex;
+  flex-direction: row;
+}
+
+.right-img-call {
+  margin-right: 30rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.item-car-number {
+  border: 1rpx solid #c8c8c8;
+  font-size: 20rpx;
+  color: #c8c8c8;
+  border-radius: 4rpx;
+  width: 100rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  text-align: center;
+}
+
+.item-car-name {
+  color: #969696;
+  font-size: 24rpx;
+}
+
+.item-siji-name {
+  color: #323232;
+  font-size: 28rpx;
+}

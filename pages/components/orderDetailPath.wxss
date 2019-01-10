@@ -21,7 +21,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 10rpx;
+  padding-left: 10rpx;
   color: #323232;
   flex-grow: 1;
   font-weight: 500;
@@ -29,7 +29,7 @@
 }
 
 .content {
-  padding: 10rpx;
+  padding-left: 10rpx;
   flex-grow: 1;
   font-size: 30rpx;
   color: #666;
@@ -59,8 +59,7 @@
 }
 
 .divider {
-  padding-bottom: 10rpx;
-  /* border-bottom: 1rpx solid #dcdcdc; */
+  /* padding-bottom: 10rpx; *//* border-bottom: 1rpx solid #dcdcdc; */
 }
 
 .ver-divider {
@@ -70,18 +69,25 @@
 }
 
 .line-dot {
-  background: #e67000;
+  /* background: #e67000; */
   width: 15rpx;
   height: 15rpx;
   border-radius: 15rpx;
 }
 
 .dot-start {
-  background: #6dc135;
+  /* background: #6dc135; */
+  background-image: url('https://wx.cisdom.com.cn/public/smallob/image/ic_main_start_address.png');
+  background-size: 13rpx 15.5rpx;
+  background-repeat: no-repeat;
 }
 
 .dot-end {
-  background: #e67000;
+  /* background: #e67000; */
+
+    background-image: url('https://wx.cisdom.com.cn/public/smallob/image/ic_main_end_address.png');
+  background-size: 13rpx 15.5rpx;
+  background-repeat: no-repeat;
 }
 
 .line-dot-hide {
@@ -118,4 +124,25 @@
   margin-right: 30rpx;
   width: 30rpx;
   height: 30rpx;
+}
+
+.path-item {
+  display: flex;
+  flex-direction: row;
+  font-size: 36rpx;
+  color: #343434;
+}
+
+.path-divider {
+  margin-left: 20rpx;
+  background: #dcdcdc;
+  width: 1rpx;
+  height: 100%;
+}
+
+.path-name {
+  flex-grow: 1;
+}
+
+.path-detail {
 }

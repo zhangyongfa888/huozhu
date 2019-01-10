@@ -19,10 +19,6 @@
     "pages/wallet/settingpwd",
     "pages/wallet/bindbankcard",
     "pages/userinfo/userinfo",
-    "pages/userinfo/username",
-    "pages/userinfo/usertel",
-    "pages/userinfo/usertelConfirm",
-    "pages/userinfo/usernewtel",
     "pages/contact/contact",
     "pages/contact/checkQuestions",
     "pages/contact/submitQuestion",
@@ -32,12 +28,19 @@
     "pages/message/message",
     "pages/setting/rule",
     "pages/peihuo/orderList",
-    "pages/order/pAddOrder"
+    "pages/order/pAddOrder",
+    "pages/order/pWaitOrder",
+    "pages/order/pOrderRemark",
+    "pages/chooseAddress/chooseAddress",
+    "pages/order/pOrderFreight",
+    "pages/route/pRouteList",
+    "pages/route/addRoute",
+    "pages/peihuo/orderDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ec6700",
     "navigationBarTitleText": "货运宝",
-    "navigationBarTextStyle": "ffffff"
+    "navigationBarTextStyle": "#ffffff"
   }
 }

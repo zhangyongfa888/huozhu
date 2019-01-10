@@ -24,12 +24,12 @@ function getData(_this) {
       for (var i = 0; i < 2; i++) {
         var qq = utils.bMapTransQQMap(e.data.route[i].lng, e.data.route[i].lat)
         var marker = {
-          iconPath: i == 0 ? "http://app.zdhuoyunbao.com/public/smallob/image/ic_start.png" : "http://app.zdhuoyunbao.com/public/smallob/image/ic_end.png",
+          iconPath: i == 0 ? "http://app.zdhuoyunbao.com/public/smallob/image/ic_main_start_address.png" : "http://app.zdhuoyunbao.com/public/smallob/image/ic_main_end_address.png",
           id: i,
           latitude: qq.lat,
           longitude: qq.lng,
-          width: 30,
-          height: 45
+          width: 26,
+          height: 31
         }
         marks[i] = marker;
 
@@ -59,6 +59,7 @@ function getData(_this) {
 
 
       e.data.driverCarName = dataSet.getCarNameById(e.data.driverCar); //显示车型
+      e.data.car_type = dataSet.getCarNameById(e.data.car_type);
       var pic = e.data.pic; //司机头像
       if (pic == '') {
         e.data.pic = utils.defaultPic;
@@ -115,6 +116,7 @@ function getData(_this) {
       } else if (status == 10 || status == 3 || status == 11) {
 
       }
+
 
       var systeminfo = wx.getSystemInfo({
         success: function(res) {
