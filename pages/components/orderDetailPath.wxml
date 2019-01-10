@@ -4,9 +4,9 @@
 
   <view wx:for='{{path}}' wx:key='index'>
 
-    <view class='item'>
+    <view class='item '>
 
-      <view class='top'>
+      <view class='top '>
         <view class='line'>
           <view class='line-top {{index==0?"line-hide":""}}'>
           </view>
@@ -15,18 +15,19 @@
           <view class='{{index==path.length-1?"line-hide":"line-bottom"}}'>
           </view>
         </view>
-        <text class='title  {{(type=="addorder"&&item.address=="")?"divider":""}}' data-index='{{index}}' bindtap='chooseAddress'>{{item.city}} </text>
+        <text  class='title  {{(type=="addorder"&&item.address=="")?"divider":""}}' data-index='{{index}}' bindtap='chooseAddress'>{{item.city}} </text>
+
+        <!-- <image hidden='{{item.lat==0&&type!="addorder"}}' class='direction-img' src='http://res.zhangyongfa888.site/ic_daohang_location.png' mode='aspectFit'></image>
+        <view hidden='{{item.lat==0&&type!="addorder"}}' class='direction' bindtap='direction' data-lat='{{item.lat}}' data-lng='{{item.lng}}'>导航该路线</view> -->
 
 
-        <!-- 添加常用路线 -->
         <block wx:if='{{index==0}}'>
 
-          <image hidden='{{type!="addorder"}}' class='direction-img' src='https://wx.cisdom.com.cn/public/smallob/image/ic_often_route.png' mode='aspectFit'></image>
+          <image hidden='{{type!="addorder"}}' class='direction-img' src='http://res.zhangyongfa888.site/ic_often_route.png' mode='aspectFit'></image>
           <view hidden='{{type!="addorder"}}' class='direction' bindtap='direction'>常用路线</view>
         </block>
-        <!-- 删除路线按钮 -->
         <block wx:if='{{index>1}}'>
-          <image class='delete-img' hidden='{{type!="addorder"}}' bindtap='delete' data-index='{{index}}' src='https://wx.cisdom.com.cn/public/smallob/image/ic_delete_gray.png' mode='aspectFit'>
+          <image class='delete-img' hidden='{{type!="addorder"}}' bindtap='delete' data-index='{{index}}' src='http://res.zhangyongfa888.site/ic_delete_gray.png' mode='aspectFit'>
           </image>
         </block>
       </view>
@@ -43,7 +44,7 @@
         </view>
         <view class='content {{(type=="addorder"&&item.address!="")?"divider":""}}'>
           <view> {{item.address}} {{item.orderAddress}}</view>
-          <view hidden='{{item.name.length==0}}'>{{item.name}} {{item.mobile}}</view>
+          <view>{{item.name}} {{item.name}}</view>
 
         </view>
 

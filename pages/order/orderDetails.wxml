@@ -3,12 +3,7 @@
 
 <map id="map" hidden='{{showPay||showPayMethod||showpwd}}' scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location='true' style="width: 100%; height: {{height}}px;">
 
-  <cover-view hidden='{{orderInfo.status!=1}}' class='waiting-parent'>
-    <cover-view class='waiting-tips'>正在通知附件的司机...</cover-view>
-    <cover-view class='waiting-tips'>{{orderInfo.car_type}}</cover-view>
-
-  </cover-view>
-  <cover-view class='driver' hidden='{{orderInfo.status==1||orderInfo.status==13}}'>
+  <cover-view class='driver' hidden='{{orderInfo.status==1}}'>
     <cover-image src='{{orderInfo.pic}}' class='driverpic'></cover-image>
     <cover-view class='driverinfo'>
       <cover-view class='drivername'>{{orderInfo.driverName}}</cover-view>

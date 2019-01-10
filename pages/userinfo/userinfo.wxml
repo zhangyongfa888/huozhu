@@ -1,2 +1,52 @@
 <!--pages/userinfo/userinfo.wxml-->
-<text>pages/userinfo/userinfo.wxml</text>
+<!-- 用户页面 -->
+<view class='user-content'>
+  <view class='user-pic'>
+  <p bindtap="toPic">
+      <view class='user-header'>头像</view>
+      <view class='user-img'>
+        <view wx:if="{{head_img == ''}}">
+          <image class='img1' src="https://wx.cisdom.com.cn/public/smallob/image/ic_main_menu_head.png"></image>  
+        </view>
+        <view wx:else>
+          <image class='img1' src="{{head_img}}"></image>
+        </view>
+        <image class='img2' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image> 
+      </view>
+  </p>
+  </view>
+  <view class='user-name' bindtap='toName'>
+    <view class='name'>昵称</view>
+    <view class='install'>
+      <view wx:if = "{{name == ''}}">
+        <view class='setup'><span>去设置</span></view>
+        <image class='img3' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image>
+      </view>
+      <view wx:else>
+        <view class='setup'><span style="color:#000">{{name}}</span></view>
+        <image class='img3' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class='user-name' bindtap='toSex'>
+    <view class='name'>性别</view>
+    <view class='install'>
+    <view wx:if = "{{sex == 0}}">
+      <view class='setup'><span>去设置</span></view>
+      <image class='img3' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image>
+    </view>
+    <view wx:else>
+        <view class='setSex'><span style="color:#000">{{sex}}</span></view>
+        <image class='img3' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image>
+    </view> 
+    </view>
+  </view>
+  <view class='user-tel' bindtap='toTel'>
+    <view class='tel'>手机号</view>
+    <view class='install-tel'>
+      <view wx:if = "{{mobile != ''}}" class='setup-tel'>{{mobile}}</view>
+      <view wx:else class='setup-tel'>无</view>
+      <image class='img4' src="https://wx.cisdom.com.cn/public/smallob/image/ic_arrow.png"></image>
+    </view>
+  </view>
+</view>

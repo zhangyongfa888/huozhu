@@ -26,11 +26,11 @@
   <view class='bottom-btn'>
 
     <view class='bottom-line bottom-border' bindtap='submitQuestion'>
-      <image src='https://wx.cisdom.com.cn/public/smallob/image/icon_ques_feed_back.png' mode='aspectFit' class='bottom-img'> </image>
+      <image src='http://res.zhangyongfa888.site/icon_ques_feed_back.png' mode='aspectFit' class='bottom-img'> </image>
       <text>问题反馈</text>
     </view>
     <view class='bottom-line' bindtap='call'>
-      <image src='https://wx.cisdom.com.cn/public/smallob/image/icon_contact_center.png' mode='aspectFit' class='bottom-img'> </image>
+      <image src='http://res.zhangyongfa888.site/icon_contact_center.png' mode='aspectFit' class='bottom-img'> </image>
       <text>联系客服</text>
     </view>
   </view>
