@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var phone = wx.getStorageSync("user").mobile;
+    var phone = wx.getStorageSync("info").mobile;
     var mobile = phone.slice(0, 3) + "****" + phone.slice(7, 11);
     this.setData({mobile});
   },
