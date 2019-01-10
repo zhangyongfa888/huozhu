@@ -59,6 +59,7 @@ function getData(_this) {
 
 
       e.data.driverCarName = dataSet.getCarNameById(e.data.driverCar); //显示车型
+      e.data.car_type = dataSet.getCarNameById(e.data.car_type);
       var pic = e.data.pic; //司机头像
       if (pic == '') {
         e.data.pic = utils.defaultPic;
@@ -115,6 +116,7 @@ function getData(_this) {
       } else if (status == 10 || status == 3 || status == 11) {
 
       }
+
 
       var systeminfo = wx.getSystemInfo({
         success: function(res) {

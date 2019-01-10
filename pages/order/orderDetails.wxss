@@ -6,6 +6,19 @@
   left: 0;
   top: 0;
 }
+.waiting-parent{
+  height: 140rpx;
+  background: #fff;
+  margin: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+.waiting-tips {
+  font-size: 30rpx;
+  text-align: center;
+}
 
 .driver {
   height: 150rpx;
@@ -54,10 +67,11 @@
   width: 60rpx;
   height: 60rpx;
 }
-.distance{
+
+.distance {
   border-radius: 5rpx;
   border: 1rpx solid #ec6700;
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
   padding: 10rpx 10rpx 10rpx 10rpx;
   background: #ef6700;
@@ -65,6 +79,7 @@
   position: fixed;
   top: 170rpx;
 }
+
 .addtip {
   position: fixed;
   width: 100rpx;

@@ -2,7 +2,7 @@
 <view class='parent'>
 
   <view class='banner'>
-    <image src='http://res.zhangyongfa888.site/ic_about.png' mode='aspectFit' class='logo'></image>
+    <image src='https://wx.cisdom.com.cn/public/smallob/image/ic_about.png' mode='aspectFit' class='logo'></image>
     <text class='name'>货运宝司机端lite</text>
   </view>
 

@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.3",
+	"libVersion": "2.5.0",
 	"appid": "wxe9f646cd075f1e8b",
 	"projectname": "huozhu",
 	"debugOptions": {
