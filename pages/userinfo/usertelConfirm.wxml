@@ -1,0 +1,18 @@
+<!--pages/userinfo/usertelConfirm.wxml-->
+<view class='con-body'>
+  <view class='con-phone'>
+    <view class='menu2'>{{mobile}}</view>
+  </view>
+  <view class='input'>
+    <input bindinput='inputComplete' maxlength='4' placeholder='验证码'></input>
+    <view wx:if="{{btnStatus}}">
+      <view class='check' bindtap="checkNum">获取验证码</view>
+    </view>
+    <view wx:if="{{!btnStatus}}" class="check">
+      <text>{{sec}}s</text>
+    </view>
+  </view>
+  <view wx:if="{{btnOk == true}}" class='btn' bindtap='update'><span>立即验证</span></view>
+  <view wx:else style='background:#ccc;' class='btn'><span>立即验证</span></view>
+  <view class='bat'>更换后账户信息不变，当前号码作废，下次需使用新手机号登录</view>
+</view>
