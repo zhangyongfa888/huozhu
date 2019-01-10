@@ -9,20 +9,20 @@
   <view class='choose'>选择支付方式</view>
 
   <view class='line' bindtap='chooseBl'>
-    <image class='img' src='https://wx.cisdom.com.cn/public/smallob/image/ic_cash_payment.png' mode='aspectFit'></image>
+    <image class='img' src='http://res.zhangyongfa888.site/ic_cash_payment.png' mode='aspectFit'></image>
     <view class='line-center'>
       <text class='title'>余额支付</text>
       <text class='banlance'>可用余额￥{{money}}</text>
     </view>
     <text class='recharge' hidden='{{money!=0}}' catchtap='recharge'>充值</text>
-    <image class='chooseImg' src='{{checkedBalance?"https://wx.cisdom.com.cn/public/smallob/image/ic_rb_true.png":"https://wx.cisdom.com.cn/public/smallob/image/ic_rb_false.png"}}' mode='aspectFit'></image>
+    <image class='chooseImg' src='{{checkedBalance?"http://res.zhangyongfa888.site/ic_rb_true.png":"http://res.zhangyongfa888.site/ic_rb_false.png"}}' mode='aspectFit'></image>
   </view>
   <view class='line' bindtap='chooseWx'>
-    <image class='img' src='https://wx.cisdom.com.cn/public/smallob/image/ic_wechat_payment.png' mode='aspectFit'></image>
+    <image class='img' src='http://res.zhangyongfa888.site/ic_wechat_payment.png' mode='aspectFit'></image>
     <view class='line-center'>
       <text class='title'>微信支付</text>
     </view>
-    <image class='chooseImg' src='{{checkedWexin?"https://wx.cisdom.com.cn/public/smallob/image/ic_rb_true.png":"https://wx.cisdom.com.cn/public/smallob/image/ic_rb_false.png"}}' mode='aspectFit'></image>
+    <image class='chooseImg' src='{{checkedWexin?"http://res.zhangyongfa888.site/ic_rb_true.png":"http://res.zhangyongfa888.site/ic_rb_false.png"}}' mode='aspectFit'></image>
 
   </view>
 

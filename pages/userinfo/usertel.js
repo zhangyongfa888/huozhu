@@ -1,18 +1,24 @@
-// pages/peihuo/orderDetails.js
+// pages/userinfo/usertel.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    mobile:""
   },
-
+  toTel:function(){
+    wx.navigateTo({
+      url: 'usertelConfirm',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var phone = wx.getStorageSync("user").mobile;
+    var mobile = phone.slice(0, 3) + "****" + phone.slice(7, 11);
+    this.setData({mobile});
   },
 
   /**

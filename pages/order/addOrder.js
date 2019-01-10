@@ -74,8 +74,8 @@ Page({
       category: sendOrder.category,
       carType: sendOrder.carType,
       busSize: '0',
-      cargoCategory: 0, //大类
-      cargoType: 0, //子类
+      cargoCategory: sendOrder.cargoCategory, //大类
+      cargoType: sendOrder.cargoType, //子类
 
       Did: sendOrder.extrasId + "",
       time: sendOrder.time,
@@ -99,18 +99,28 @@ Page({
 
     for (var i in sendOrder.route) {
 
+      // "name": that.data.name;
+      //   "mobile": that.data.phone;
+      //     "province": that.data.startAddressBD.addressComponent.province,
+      //       "city": that.data.startAddressBD.addressComponent.city,
+      //         "county": that.data.startAddressBD.addressComponent.district,
+      //           "address": that.data.startAddressBD.formatted_address,
+      //             "lng": that.data.startAddressBD.location.lng,
+      //               "lat": that.data.startAddressBD.location.lat,
+      //                 "codePath": that.data.startAddressBD.addressComponent.adcode,
+      //                   "town": that.data.startAddressBD.addressComponent.city,
+      //                     "orderAddress": that.data.startAddressBD.sematic_description + ""
+
+      // "mobile": "",
       sendOrder.route[i]['name'] = "";
       sendOrder.route[i]['mobile'] = "";
       sendOrder.route[i]['town'] = sendOrder.route[i].city;
-      sendOrder.route[i]['orderAddress'] = sendOrder.route[i].order_address;
 
     }
     paramAdd['route'] = JSON.stringify(sendOrder.route);
 
     if (sendOrder.category == '2') { //大车
-      paramAdd.cargoCategory = sendOrder.cargoCategory, //大类
-        paramAdd.cargoType = sendOrder.cargoType, //子类
-        paramAdd.busSize = sendOrder.busSize
+      paramAdd.busSize = sendOrder.busSize
       paramAdd.carType = sendOrder.carType
       paramAdd.cargoWeight = sendOrder.cargo_weight
       paramAdd.payType = '4'; //1余额支付2微信支付3支付宝支付4现金支付
@@ -165,7 +175,7 @@ Page({
 
 
         });
-
+        
         payUtil.payByAddOrder(sendOrder.price, that.data.orderCode, pwd.detail, {
           success: function(e) {
 

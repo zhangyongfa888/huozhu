@@ -1,13 +1,2 @@
 <!--pages/route/routeList.wxml-->
-<view class='parent'>
-
-
-  <view wx:for='{{list}}' wx:key='index' class='item' bindtap='onClickItem' data-route='{{item.route}}' bindlongpress='longPress' data-rid='{{item.Rid}}' data-routename='{{item.route_name}}'>
-    <view class='title'>{{item.route_name}}</view>
-    <path path='{{item.route}}'></path>
-  </view>
-
-</view>
-<view class='addroute' bindtap='addRoute'>
-  <text>添加常用路线</text>
-</view>
+<text>pages/route/routeList.wxml</text>
