@@ -29,8 +29,8 @@ page{
   width:20rpx;
   height:40rpx;
   position: absolute;
-  margin-left: 40rpx;
-  margin-top:9%;
+  margin-left: 359rpx;
+  margin-top:-15%;
 }
 .img1{
   width:150rpx;

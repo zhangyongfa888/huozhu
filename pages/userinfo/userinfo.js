@@ -76,9 +76,7 @@ Page({
     }else{
       sex = 2;
     }
-    var params = {
-      sex
-    };
+    var params = {sex};
     console.log("修改性别-准备参数：{}",params);
     cisdom.request("sex", params, {
       success(e) {
@@ -116,7 +114,7 @@ Page({
         }
         var phone = user.mobile;
         var mobile = phone.slice(0, 3) + "****" + phone.slice(7, 11);
-        self.setData({ name: user.name, sex, mobile: mobile });
+        self.setData({ name: user.name, sex, mobile: mobile, head_img: user.head_img});
       },
       fail(e) {
         console.log("获取用户信息失败");
