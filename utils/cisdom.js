@@ -126,10 +126,10 @@ function uploadFile(filePath, data, callback) {
   if (data.type != 0) {
     method = 'imageNotify'
   }
-  var driver = wx.getStorageSync('driver') || null;
+  var driver = wx.getStorageSync('info') || null;
   if (driver != null) {
     data.token = driver.token
-    data.user_id = driver.userid
+    data.id = driver.user_id
   }
   //data 加密
   data.sign = getAppkey();

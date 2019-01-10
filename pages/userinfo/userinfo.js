@@ -105,8 +105,8 @@ Page({
     cisdom.request("UserInfo", params, {
       success(e) {
         console.log("获取用户信息成功", e);
-        wx.setStorageSync("user", e.data);
-        var user = wx.getStorageSync("user");
+        wx.setStorageSync("info", e.data);
+        var user = wx.getStorageSync("info");
         console.log("获取人员信息：{}", user);
         var sex = "";
         if (user.sex == 1) {
