@@ -16,7 +16,7 @@
 }
 
 .title {
-  max-width: 450rpx;
+  max-width: 470rpx;
   min-width: 100rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -110,8 +110,9 @@
 }
 
 .direction-img {
-  width: 18rpx;
-  height: 18rpx;
+  width: 30rpx;
+  height: 27rpx;
+  margin-left:8rpx;
 }
 
 .direction {

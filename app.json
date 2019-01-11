@@ -19,10 +19,10 @@
     "pages/wallet/settingpwd",
     "pages/wallet/bindbankcard",
     "pages/userinfo/userinfo",
-        "pages/userinfo/username",
-        "pages/userinfo/usertel",
-        "pages/userinfo/usertelConfirm",
-        "pages/userinfo/usernewtel",
+    "pages/userinfo/username",
+    "pages/userinfo/usertel",
+    "pages/userinfo/usertelConfirm",
+    "pages/userinfo/usernewtel",
     "pages/contact/contact",
     "pages/contact/checkQuestions",
     "pages/contact/submitQuestion",
@@ -45,6 +45,6 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ec6700",
     "navigationBarTitleText": "货运宝",
-    "navigationBarTextStyle": "#ffffff"
+    "navigationBarTextStyle": "#fff"
   }
 }

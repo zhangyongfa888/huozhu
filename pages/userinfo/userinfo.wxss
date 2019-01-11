@@ -36,9 +36,9 @@ page{
   width:120rpx;
   height:120rpx;
   position:relative;
-  margin-left:45%;
+  margin-left:53%;
   margin-top:6%;
-   border-radius: 60rpx;
+  border-radius: 60rpx;
 }
 .user-name{
   height: 85rpx;

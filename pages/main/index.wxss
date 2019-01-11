@@ -84,19 +84,22 @@
 }
 
 .kuaiyun-title-tab {
-  font-size: 32rpx;
+  font-size: 30rpx;
   display: inline-block;
-  margin-left: 5px;
+  margin-left: 15px;
   padding-bottom: 5rpx;
   border-bottom: 1rpx solid transparent;
 }
 
 .kuaiyun-title-tab-checked {
-  font-size: 32rpx;
+  font-size: 30rpx;
   display: inline-block;
-  margin-left: 5px;
+  margin-left: 15px;
   padding-bottom: 5rpx;
+  color:#ec6700;
   border-bottom: 1rpx solid #e67300;
+  width: 25%;
+  text-align: center;
 }
 
 .banner-swiper-parent {
@@ -166,7 +169,7 @@
   flex-grow: 1;
   font-size: 32rpx;
   color: #fff;
-  background-color: #ac6700;
+  background-color: #cc6600;
   border-radius: 0;
   border-top-right-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
@@ -190,7 +193,7 @@
   padding-bottom: 13rpx;
   display: flex;
   flex-direction: row;
-  font-size: 34rpx;
+  font-size: 30rpx;
 }
 
 .truck-item-title {
@@ -198,6 +201,7 @@
 
 .truck-item-center {
   flex-grow: 1;
+  margin-left:2%;
 }
 
 .submit-bottom {
@@ -285,16 +289,16 @@
   display: flex;
   flex-direction: column;
   height: 300rpx;
-  background: #e67300;
+  background: #ff9933;
   font-size: 34rpx;
   color: white;
 }
 
 .menu-head {
   margin: 20rpx;
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 70rpx;
 }
 
 .menu-item {
@@ -306,7 +310,6 @@
   display: flex;
   flex-direction: row;
 }
-
 .menu-item-img {
   margin: 20rpx;
   width: 40rpx;
@@ -315,7 +318,7 @@
 }
 
 .menu-item-title {
-  font-size: 34rpx;
+  font-size: 33rpx;
   color: black;
 }
 

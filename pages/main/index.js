@@ -22,7 +22,7 @@ function getPrice(that) {
     sendOrder['price'] = 0;
     sendOrder['service'] = "0";
     that.setData({
-      sendOrder: sendOrder
+      sendOrder: sendOrder,
     });
     return;
   }
@@ -149,8 +149,9 @@ Page({
 
 
     ],
-
-
+    showcar:false, //显示选择的车型
+    showtype:false, //显示货物类型
+    cargoCategoryName:"",
     tab_index: 0, //快运单还是速配单
     showMenu: false,
     tab_car_list: dataUtils.carTitles,
@@ -243,7 +244,8 @@ Page({
   },
   login(e) {
     if (app.globalData.isLogin) {
-
+      this.getUserInfo();
+      console.log("获取用户信息：{}", wx.getStorageSync('info'));
       wx.navigateTo({
         url: '../userinfo/userinfo',
       })
@@ -545,6 +547,7 @@ Page({
     sendOrder['cargoTypeName'] = e.detail.cargoType.cargo_type;
     this.setData({
       showGoodsType: false,
+      showtype:true,
       sendOrder: sendOrder
     })
   },
@@ -570,6 +573,7 @@ Page({
     sendOrder['carTypeName'] = utils.getTruckTypeName(e.detail.carType);
     this.setData({
       showCarType: false,
+      showcar:true,
       sendOrder: sendOrder
     })
 
@@ -652,21 +656,47 @@ Page({
     setTimeout(function() {
       getLoginstatus(that);
     }, 1000)
-
     var user = wx.getStorageSync('info') || {
       mobile: "",
       head_img: ""
     };
+    var phone = user.mobile;
+    var mobile = phone.slice(0, 3) + "****" + phone.slice(7, 11)
     this.setData({
-      userinfo: user
+      userinfo: user,
+      mobile:mobile
     })
   },
-
+  //获取用户信息
+  getUserInfo: function () {
+    //获取用户信息
+    var self = this;
+    var params = {};
+    cisdom.request("UserInfo", params, {
+      success(e) {
+        console.log("获取用户信息成功", e);
+        var user = {};
+        user['sex'] = e.data.sex;
+        user['mobile'] = e.data.mobile;
+        user['name'] = e.data.name;
+        user['head_img'] = e.data.head_img;
+        wx.setStorageSync("info", user);
+      },
+      fail(e) {
+        console.log("获取用户信息失败");
+        wx.showToast({
+          title: e.message,
+          icon: 'fail',
+          duration: 1500
+        });
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    
   },
 
   /**

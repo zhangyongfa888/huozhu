@@ -20,7 +20,7 @@
 
         <!-- 添加常用路线 -->
         <block wx:if='{{index==0}}'>
-
+          <view style='width:2rpx;height:40rpx;background-color:#ccc;margin-left:1rpx;'></view>
           <image hidden='{{type!="addorder"}}' class='direction-img' src='https://wx.cisdom.com.cn/public/smallob/image/ic_often_route.png' mode='aspectFit'></image>
           <view hidden='{{type!="addorder"}}' class='direction' bindtap='direction'>常用路线</view>
         </block>
